@@ -37,22 +37,56 @@ namespace SolitarioCroce
         public int Value { get; }
 
         /// <summary>
+        /// the global path to represent the image in the game
+        /// </summary>
+        /// <returns> the global path of the card image </returns>
+        public string Path()
+        {
+            string path = System.IO.Directory.GetCurrentDirectory() + @"\..\..\..\..\images\" + Value.ToString();
+
+            switch(Seed)
+            {
+                case Seeds.Denari:
+                    path += "A";
+                    break;
+
+                case Seeds.Coppe:
+                    path += "B";
+                    break;
+
+                case Seeds.Spade:
+                    path += "C";
+                    break;
+
+                case Seeds.Bastoni:
+                    path += "D";
+                    break;
+            }
+
+            return path + ".png";
+        }
+
+        /// <summary>
         /// Constructor of the class
         /// </summary>
-        /// <param name="seed"> 'A', 'B', 'C', 'D' </param>
+        /// <param name="seed"> enum Seeds </param>
         /// <param name="value"> 1 <= value <= 10 </param>
         public Card(Seeds seed, int value)
         {
-            this.Seed = seed;
-            this.Value = value;
+            Seed = seed;
+            Value = value;
         }
     }
+
+    /// <summary>
+    /// represents the deck of card in the game
+    /// </summary>
     class Deck
     {
         private Queue<Card> deck = new Queue<Card>();
         
         private static Random rnd = new Random();
-        private static Card[] shuffle(Card[] cards)
+        private static Card[] Shuffle(Card[] cards)
         {
             for(int i = 0; i < cards.Length; i++)
             {
@@ -71,6 +105,9 @@ namespace SolitarioCroce
             }
             return cards;
         }
+        /// <summary>
+        /// constructor of the class, automatically shuffles the deck
+        /// </summary>
         public Deck()
         {
             Card[] possible_cards = new Card[40];
@@ -78,12 +115,20 @@ namespace SolitarioCroce
             for (int i = 0; i < 40; i++)
                 possible_cards[i] = new Card(value: i % 10 + 1, seed: (Card.Seeds)(i / 10));
             
-            foreach(Card card in shuffle(possible_cards))
+            foreach(Card card in Shuffle(possible_cards))
                 deck.Enqueue(card);
         }
 
+        /// <summary>
+        /// gets the first card of the deck
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"> thrown if the deck is Empty</exception>
         public Card getCard()
         {
+            if (deck.Count == 0) 
+                throw new Exception("deck is Empty.");
+
             return deck.Dequeue();
         }
     }
