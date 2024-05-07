@@ -5,10 +5,11 @@ Realizzazione di programma C# + WPF, per giocare un solitario basato su carte da
 ## Team di sviluppo
 Questo progetto è sviluppato da:
 
-- Nome1 **Cognome1**
-- Nome2 **Cognome2**
-- Nome3 **Cognome3**
-- Nome4 **Cognome4**
+- **Agostini** Alan
+- **Angiolillo** Matteo
+- **Balducci** Marco
+- **Bovo** Alan Davide
+
 
 ## Gioco
 Il gioco da sviluppare è il [Solitario a Croce](https://www.youtube.com/watch?v=g7TJviLmuMg)
