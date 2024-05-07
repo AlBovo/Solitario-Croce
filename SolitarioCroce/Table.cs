@@ -12,6 +12,8 @@
         /// </summary>
         private Stack<Card>[] stacks = new Stack<Card>[6];
 
+        private Deck deck = new Deck();
+
         /// <summary>
         /// Array of the bases with all the last cards pushed in the game.
         /// </summary>
@@ -89,7 +91,12 @@
         public Table()
         {
             for (int i = 0; i < 6; i++)
+            {
                 stacks[i] = new Stack<Card>();
+
+                if (i <= 4)
+                    stacks[i].Push(deck.GetCard());
+            }
         }
     }
 }

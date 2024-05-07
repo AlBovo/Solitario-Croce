@@ -19,6 +19,8 @@ namespace SolitarioCroce
         public MainWindow()
         { 
             InitializeComponent();
+
+            Table table = new Table();
         }
     }
 }
