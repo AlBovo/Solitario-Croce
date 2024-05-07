@@ -22,6 +22,7 @@ namespace SolitarioCroce
             Spade,
             Bastoni
         }
+
         /// <summary>
         /// Seed guide:
         /// - A = Denari
@@ -42,28 +43,8 @@ namespace SolitarioCroce
         /// <returns> the global path of the card image </returns>
         public string Path()
         {
-            string path = System.IO.Directory.GetCurrentDirectory() + @"\..\..\..\..\images\" + Value.ToString();
-
-            switch(Seed)
-            {
-                case Seeds.Denari:
-                    path += "A";
-                    break;
-
-                case Seeds.Coppe:
-                    path += "B";
-                    break;
-
-                case Seeds.Spade:
-                    path += "C";
-                    break;
-
-                case Seeds.Bastoni:
-                    path += "D";
-                    break;
-            }
-
-            return path + ".png";
+            return System.IO.Directory.GetCurrentDirectory() +                              // get directory
+                @"\..\..\..\..\images\" + Value.ToString() + (char)(Seed + 'A') + ".png";   // add path to image
         }
 
         /// <summary>
@@ -83,9 +64,9 @@ namespace SolitarioCroce
     /// </summary>
     class Deck
     {
+        private static Random rnd = new Random();
         private Queue<Card> deck = new Queue<Card>();
         
-        private static Random rnd = new Random();
         private static Card[] Shuffle(Card[] cards)
         {
             for(int i = 0; i < cards.Length; i++)
@@ -105,6 +86,20 @@ namespace SolitarioCroce
             }
             return cards;
         }
+
+        /// <summary>
+        /// gets the first card of the deck
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"> thrown if the deck is Empty</exception>
+        public Card GetCard()
+        {
+            if (deck.Count == 0)
+                throw new Exception("deck is Empty.");
+
+            return deck.Dequeue();
+        }
+
         /// <summary>
         /// constructor of the class, automatically shuffles the deck
         /// </summary>
@@ -117,19 +112,6 @@ namespace SolitarioCroce
             
             foreach(Card card in Shuffle(possible_cards))
                 deck.Enqueue(card);
-        }
-
-        /// <summary>
-        /// gets the first card of the deck
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="Exception"> thrown if the deck is Empty</exception>
-        public Card getCard()
-        {
-            if (deck.Count == 0) 
-                throw new Exception("deck is Empty.");
-
-            return deck.Dequeue();
         }
     }
 }
