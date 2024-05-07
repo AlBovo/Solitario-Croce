@@ -6,35 +6,85 @@ using System.Threading.Tasks;
 
 namespace SolitarioCroce
 {
+    
+    /// <summary>
+    /// class Card, represents a placeable card on the table.
+    /// </summary>
     class Card
     {
         /// <summary>
-        /// class Card, represents a placeable card on the table.
-        /// Seed guide:
-        /// - D = Denari
-        /// - C = Coppe
-        /// - S = Spade
-        /// - B = Bastoni
+        /// enum representing the possible seeds of the cards
         /// </summary>
-        public char seed { get; }
-        public int value { get; }
-
-        public Card(char seed, int value)
+        public enum Seeds
         {
-            this.seed = seed;
-            this.value = value;
+            Denari,
+            Coppe,
+            Spade,
+            Bastoni
+        }
+        /// <summary>
+        /// Seed guide:
+        /// - A = Denari
+        /// - B = Coppe
+        /// - C = Spade
+        /// - D = Bastoni
+        /// </summary>
+        public Seeds Seed { get; }
+
+        /// <summary>
+        /// 1 <= value <= 10
+        /// </summary>
+        public int Value { get; }
+
+        /// <summary>
+        /// Constructor of the class
+        /// </summary>
+        /// <param name="seed"> 'A', 'B', 'C', 'D' </param>
+        /// <param name="value"> 1 <= value <= 10 </param>
+        public Card(Seeds seed, int value)
+        {
+            this.Seed = seed;
+            this.Value = value;
         }
     }
     class Deck
     {
         private Queue<Card> deck = new Queue<Card>();
         
+        private static Random rnd = new Random();
+        private static Card[] shuffle(Card[] cards)
+        {
+            for(int i = 0; i < cards.Length; i++)
+            {
+                int first_pos = rnd.Next(0, cards.Length);
+                int second_pos;
+
+                while (true)
+                {
+                    second_pos = rnd.Next(0, cards.Length);
+                    if (first_pos != second_pos) break;
+                }
+
+                Card temp = cards[first_pos];
+                cards[first_pos] = cards[second_pos];
+                cards[second_pos] = temp;             
+            }
+            return cards;
+        }
         public Deck()
         {
-            for(int i = 0; i < 40; i++)
-            {
-                
-            }
+            Card[] possible_cards = new Card[40];
+
+            for (int i = 0; i < 40; i++)
+                possible_cards[i] = new Card(value: i % 10 + 1, seed: (Card.Seeds)(i / 10));
+            
+            foreach(Card card in shuffle(possible_cards))
+                deck.Enqueue(card);
+        }
+
+        public Card getCard()
+        {
+            return deck.Dequeue();
         }
     }
 }
