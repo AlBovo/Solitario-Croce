@@ -12,6 +12,9 @@
         /// </summary>
         private Stack<Card>[] stacks = new Stack<Card>[6];
 
+        /// <summary>
+        /// The deck of this instance of the table.
+        /// </summary>
         private Deck deck = new Deck();
 
         /// <summary>
@@ -19,6 +22,12 @@
         /// </summary>
         private Card[] bases = new Card[4];
 
+        /// <summary>
+        /// Change card position from a stack to another stack.
+        /// </summary>
+        /// <param name="stackFrom">id of the starter stack.</param>
+        /// <param name="stackTo">id of the stack where is moved the card.</param>
+        /// <exception cref="ArgumentException">Some of the parameters are not correct.</exception>
         public void ChangeCardStack(int stackFrom, int stackTo)
         {
             if (stackFrom < 0 || stackFrom > 4)
@@ -47,6 +56,10 @@
                 stacks[stackTo].Push(stacks[stackFrom].Pop());
         }
 
+        /// <summary>
+        /// A function to find the cards at the top of stacks (indexes in range [0;5])
+        /// </summary>
+        /// <returns>An array of cards at the top of each stack.</returns>
         public Card[] GetCardsFromStacks()
         {
             Card[] cards = new Card[6];
@@ -62,6 +75,10 @@
             return cards;
         }
 
+        /// <summary>
+        /// A function to find the cards at the top of bases (indexes in range [0;3])
+        /// </summary>
+        /// <returns>An array of cards at the top of each bases.</returns>
         public Card[] GetCardsFromBases()
         {
             Card[] cards = new Card[4];
@@ -74,18 +91,29 @@
             return cards;
         }
 
-        public void AddCardBase(Card card)
+        /// <summary>
+        /// Change card position from a stack to a new base.
+        /// </summary>
+        /// <param name="stackFrom">id of the starter stack.</param>
+        /// <param name="stackTo">id of the base where is moved the card.</param>
+        /// <exception cref="ArgumentException">Some of the parameters are not correct.</exception>
+        public void ChangeCardBase(int stackFrom, int baseTo)
         {
-            if (card.Value == 1)
-            {
-                bases[(int)card.Seed] = card;
-                return;
-            }
+            if (stackFrom < 0 || stackFrom > 4)
+                throw new ArgumentException("The id of the stack is not valid");
 
-            if (bases[(int)card.Seed].Value == card.Value - 1)
-                bases[(int)card.Seed] = card;
-            else
-                throw new ArgumentException("The card cannot be added in any base.");
+            if (stackFrom < 0 || stackFrom > 3)
+                throw new ArgumentException("The id of the base is not valid");
+
+            Card card = stacks[stackFrom].Peek();
+
+            if (bases[baseTo].Seed != card.Seed)
+                return;
+
+            if (bases[baseTo].Value != card.Value - 1)
+                return;
+
+            bases[baseTo] = stacks[stackFrom].Pop();
         }
 
         public Table()
