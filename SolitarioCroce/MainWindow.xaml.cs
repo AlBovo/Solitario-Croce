@@ -23,4 +23,5 @@ namespace SolitarioCroce
             Table table = new Table();
         }
     }
+  
 }
