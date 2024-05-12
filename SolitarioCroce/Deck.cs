@@ -43,8 +43,7 @@ namespace SolitarioCroce
         /// <returns> the global path of the card image </returns>
         public string Path()
         {
-            return System.IO.Directory.GetCurrentDirectory() +                              // get directory
-                @"\..\..\..\..\images\" + Value.ToString() + (char)(Seed + 'A') + ".png";   // add path to image
+            return "pack://application:,,,/images/" + Value.ToString() + (char)(Seed + 'A') + ".jpg";   // add path to image
         }
 
         /// <summary>
@@ -90,14 +89,23 @@ namespace SolitarioCroce
         /// <summary>
         /// gets the first card of the deck
         /// </summary>
-        /// <returns></returns>
-        /// <exception cref="Exception"> thrown if the deck is Empty</exception>
+        /// <returns>the card at the top of the deck</returns>
+        /// <exception cref="Exception">thrown if the deck is Empty</exception>
         public Card GetCard()
         {
             if (deck.Count == 0)
                 throw new Exception("deck is Empty.");
 
             return deck.Dequeue();
+        }
+
+        /// <summary>
+        /// see if the deck is empty
+        /// </summary>
+        /// <returns>True if empty, false otherwise</returns>
+        public bool IsEmpty()
+        {
+            return deck.Count == 0;
         }
 
         /// <summary>

@@ -10,12 +10,12 @@
         /// Indexes from 0-4 rappresent the game stacks.
         /// Index 5 rappresents the deck's stack.
         /// </summary>
-        private Stack<Card>[] stacks = new Stack<Card>[6];
+        private Stack<Card>[] stacks = new Stack<Card>[5];
 
         /// <summary>
         /// The deck of this instance of the table.
         /// </summary>
-        private Deck deck = new Deck();
+        public Deck deck = new Deck();
 
         /// <summary>
         /// Array of the bases with all the last cards pushed in the game.
@@ -62,7 +62,7 @@
         /// <returns>An array of cards at the top of each stack.</returns>
         public Card[] GetCardsFromStacks()
         {
-            Card[] cards = new Card[6];
+            Card[] cards = new Card[5];
 
             for (int i = 0; i < cards.Length; i++)
             {
@@ -102,7 +102,7 @@
             if (stackFrom < 0 || stackFrom > 4)
                 throw new ArgumentException("The id of the stack is not valid");
 
-            if (stackFrom < 0 || stackFrom > 3)
+            if (baseTo < 0 || baseTo > 3)
                 throw new ArgumentException("The id of the base is not valid");
 
             Card card = stacks[stackFrom].Peek();
@@ -118,7 +118,7 @@
 
         public Table()
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 5; i++)
             {
                 stacks[i] = new Stack<Card>();
 

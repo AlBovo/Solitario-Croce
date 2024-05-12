@@ -6,93 +6,117 @@
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
         Title="Solitario Croce" Height="800" Width="630" ResizeMode="NoResize" Background="#FF146f50">
+    <!--#region Remove Hover Button event style -->
+    <Window.Resources>
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <!-- #endregion -->
+
     <Grid>
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,614,0,10">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,580,0,0">
+            <Button
+                x:Name="Deck" 
+                Click="GetDeckCard" BorderThickness="0"
+                Style="{StaticResource NoHoverButtonStyle}"
+                >
+                <Button.Background>
+                    <ImageBrush
+                        ImageSource="/images/RETRO.jpg"
+                        Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+        </Border>
+
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,580,192,0">
             <Canvas 
-                x:Name="Deck"                
-                AllowDrop="False"
+                x:Name="PickedCards"                
+                AllowDrop="False">
+            </Canvas>
+        </Border>
+
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,400,0,200">
+            <Canvas 
+                x:Name="CrossLow"                
+                AllowDrop="True"
                 Background="Transparent">
             </Canvas>
         </Border>
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="315,614,0,10">
+
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,232,150,370">
             <Canvas 
-        x:Name="PickedCards"                
-        AllowDrop="False"
-        Background="Transparent">
-            </Canvas>
-        </Border>
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,397,0,227">
-            <Canvas 
-        x:Name="CrossLow"                
-        AllowDrop="True"
-        Background="Transparent">
-            </Canvas>
-        </Border>
-    
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="356,232,0,392">
-            <Canvas 
-        x:Name="CrossRight"                
-        AllowDrop="True"
-        Background="Transparent">
-            </Canvas>
-        </Border>
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,232,0,392">
-            <Canvas 
-        x:Name="CrossMid"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="CrossRight"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="156,232,0,392">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,232,0,370">
             <Canvas 
-        x:Name="CrossLeft"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="CrossMid"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,66,0,557">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="150,232,0,370">
             <Canvas 
-        x:Name="CrossTop"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="CrossLeft"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="502,464,0,160">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,60,0,530">
             <Canvas 
-        x:Name="BaseLowRight"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="CrossTop"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,464,0,160">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,464,10,130">
             <Canvas 
-        x:Name="BaseLowLeft"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="BaseLowRight"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,28,0,596">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,464,0,130">
             <Canvas 
-        x:Name="BaseTopLeft"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="BaseLowLeft"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="502,28,0,596">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,28,0,570">
             <Canvas 
-        x:Name="BaseTopRight"                
-        AllowDrop="True"
-        Background="Transparent">
+                x:Name="BaseTopLeft"                
+                AllowDrop="True"
+                Background="Transparent">
+            </Canvas>
+        </Border>
+
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,28,10,570">
+            <Canvas 
+                x:Name="BaseTopRight"                
+                AllowDrop="True"
+                Background="Transparent">
             </Canvas>
         </Border>
 

@@ -16,12 +16,40 @@ namespace SolitarioCroce
     /// </summary>
     public partial class MainWindow : Window
     {
+        Table table = new Table();
+
         public MainWindow()
-        { 
+        {
             InitializeComponent();
 
-            Table table = new Table();
+            Card[] cards = table.GetCardsFromStacks();
+            Canvas[] canvas = { CrossLeft, CrossRight, CrossLow, CrossTop, CrossMid };
+
+            for (int i = 0; i < cards.Length; i++)
+            {
+                ImageBrush image = new ImageBrush();
+                image.ImageSource = new BitmapImage(new Uri(cards[i].Path()));
+                image.Stretch = Stretch.UniformToFill;
+
+                canvas[i].Background = image;
+            }
+        }
+
+        private void GetDeckCard(object sender, RoutedEventArgs e)
+        {
+            Card card = table.deck.GetCard();
+
+            if (table.deck.IsEmpty())
+            {
+                Deck.Background = Brushes.Transparent;
+                Deck.IsEnabled = false;
+            }
+
+            ImageBrush image = new ImageBrush();
+            image.ImageSource = new BitmapImage(new Uri(card.Path()));
+            image.Stretch = Stretch.UniformToFill;
+
+            PickedCards.Background = image;
         }
     }
-  
 }
