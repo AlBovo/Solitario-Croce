@@ -8,9 +8,9 @@
         /// <summary>
         /// Array of the stacks with all the cards used in the game.
         /// Indexes from 0-4 rappresent the game stacks.
-        /// Index 5 rappresents the deck's stack.
+        /// Index 5 rappresents the picked cards' stack.
         /// </summary>
-        private Stack<Card>[] stacks = new Stack<Card>[5];
+        private Stack<Card>[] stacks = new Stack<Card>[6];
 
         /// <summary>
         /// The deck of this instance of the table.
