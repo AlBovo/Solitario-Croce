@@ -45,7 +45,8 @@
             <Canvas 
                 x:Name="PickedCards"                
                 AllowDrop="False"
-                MouseMove="Dragging_MouseMove">
+                MouseMove="Dragging_MouseMove"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -53,7 +54,9 @@
             <Canvas 
                 x:Name="CrossLow"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                MouseMove="Dragging_MouseMove"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -61,7 +64,9 @@
             <Canvas 
                 x:Name="CrossRight"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                MouseMove="Dragging_MouseMove"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -69,7 +74,9 @@
             <Canvas 
                 x:Name="CrossMid"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                MouseMove="Dragging_MouseMove"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -77,7 +84,9 @@
             <Canvas 
                 x:Name="CrossLeft"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                MouseMove="Dragging_MouseMove"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -85,7 +94,9 @@
             <Canvas 
                 x:Name="CrossTop"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                MouseMove="Dragging_MouseMove"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -94,7 +105,7 @@
                 x:Name="BaseLowRight"                
                 Background="Transparent"
                 AllowDrop="True"
-                Drop="BaseLowRight_Drop">
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -102,7 +113,8 @@
             <Canvas 
                 x:Name="BaseLowLeft"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -110,7 +122,8 @@
             <Canvas 
                 x:Name="BaseTopLeft"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 
@@ -118,7 +131,8 @@
             <Canvas 
                 x:Name="BaseTopRight"                
                 AllowDrop="True"
-                Background="Transparent">
+                Background="Transparent"
+                Drop="Card_Drop">
             </Canvas>
         </Border>
 

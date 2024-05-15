@@ -56,17 +56,20 @@ namespace SolitarioCroce
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                DragDrop.DoDragDrop(PickedCards, PickedCards, DragDropEffects.Move);
+                DragDrop.DoDragDrop((Canvas)e.Source, (Canvas)e.Source, DragDropEffects.Move);
             }
         }
 
-        private void BaseLowRight_Drop(object sender, DragEventArgs e)
+        private void Card_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
 
+            //watch out when you keep the left button pressed on nothing and pass over another card
             Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
-            BaseLowRight.Background = source.Background;
+            Canvas target = (Canvas)e.Source;
+
+            target.Background = source.Background;
         }
 
     }
