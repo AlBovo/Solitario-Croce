@@ -52,6 +52,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,400,0,200">
             <Canvas 
+                Tag="s4"
                 x:Name="CrossLow"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -62,6 +63,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,232,150,370">
             <Canvas 
+                Tag="s3"
                 x:Name="CrossRight"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -72,6 +74,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,232,0,370">
             <Canvas 
+                Tag="s2"
                 x:Name="CrossMid"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -82,6 +85,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="150,232,0,370">
             <Canvas 
+                Tag="s1"
                 x:Name="CrossLeft"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -92,6 +96,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,60,0,530">
             <Canvas 
+                Tag="s0"
                 x:Name="CrossTop"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -102,6 +107,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,464,10,130">
             <Canvas 
+                Tag="b3"
                 x:Name="BaseLowRight"                
                 Background="Transparent"
                 AllowDrop="True"
@@ -111,6 +117,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,464,0,130">
             <Canvas 
+                Tag="b2"
                 x:Name="BaseLowLeft"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -120,6 +127,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,28,0,570">
             <Canvas 
+                Tag="b0"
                 x:Name="BaseTopLeft"                
                 AllowDrop="True"
                 Background="Transparent"
@@ -129,6 +137,7 @@
 
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,28,10,570">
             <Canvas 
+                Tag="b1"
                 x:Name="BaseTopRight"                
                 AllowDrop="True"
                 Background="Transparent"

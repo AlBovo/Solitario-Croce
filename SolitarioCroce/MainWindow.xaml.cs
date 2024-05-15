@@ -35,6 +35,21 @@ namespace SolitarioCroce
             }
         }
 
+        /// <summary>
+        /// function to call to choose which movement to perform
+        /// </summary>
+        /// <param name="source">the canvas of origin in the drag and drop event</param>
+        /// <param name="target">the canvas of destination in the drag and drop event</param>
+        /// <returns>bool: true if stack-stack else stack-base</returns>
+        private (bool, int, int) GetTypeAndId_Movement(Canvas source, Canvas target)
+        {
+            (bool type, int idx) source_type = (source.Tag.ToString()![0] == 's', int.Parse($"{source.Tag.ToString()![1]}"));
+            (bool type, int idx) target_type = (source.Tag.ToString()![0] == 's', int.Parse($"{source.Tag.ToString()![1]}"));
+
+            if (source_type.type && target_type.type)
+                return (true, source_type.idx, target_type.idx);
+        }
+
         private void GetDeckCard(object sender, RoutedEventArgs e)
         {
             Card card = table.deck.GetCard();
