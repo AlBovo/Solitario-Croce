@@ -21,3 +21,15 @@ Scopo del solitario è costruire e completare le basi (dall’asso al re per cia
 La prima carta di ciascun mazzetto che forma la croce può andare alle basi o essere spostata su un posto vuoto o su di un’altra carta della croce. Si può spostare una sola carta alla volta. La carta del pozzo può andare direttamente alle basi o essere trasferita al tavolo.
 
 **Tipo di carte:** carte italiane (4 semi x 10 carte per ogni seme).
+
+## Aggiornare branch
++ Aggiungere il remote branch: `git remote add [nome] [url|ssh]`
++ Verificare se il remote è stato aggiunto: `git remote` o `git remote -v`
+
+### Aggiornare github -> gitlab
++ Aggiornare il remote in locale: `git remote update`
++ Pullare le modifiche del remote: `git pull [nome] [branch]`
++ Aggiornare il gitlab: `git push`
+
+### Aggiornare gitlab -> github
++ Pushare le modifiche sul remote: `git push [nome]`
