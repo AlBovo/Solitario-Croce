@@ -25,8 +25,8 @@
         </Style>
     </Window.Resources>
     <!-- #endregion -->
-
     <Grid>
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,580,0,0">
             <Button
                 x:Name="Deck" 
@@ -44,7 +44,8 @@
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,580,192,0">
             <Canvas 
                 x:Name="PickedCards"                
-                AllowDrop="False">
+                AllowDrop="False"
+                MouseMove="Dragging_MouseMove">
             </Canvas>
         </Border>
 
@@ -91,8 +92,9 @@
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,464,10,130">
             <Canvas 
                 x:Name="BaseLowRight"                
+                Background="Transparent"
                 AllowDrop="True"
-                Background="Transparent">
+                Drop="BaseLowRight_Drop">
             </Canvas>
         </Border>
 

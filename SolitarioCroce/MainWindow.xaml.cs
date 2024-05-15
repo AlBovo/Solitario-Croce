@@ -51,5 +51,23 @@ namespace SolitarioCroce
 
             PickedCards.Background = image;
         }
+
+        private void Dragging_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop(PickedCards, PickedCards, DragDropEffects.Move);
+            }
+        }
+
+        private void BaseLowRight_Drop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(typeof(Canvas)))
+                return;
+
+            Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
+            BaseLowRight.Background = source.Background;
+        }
+
     }
 }
