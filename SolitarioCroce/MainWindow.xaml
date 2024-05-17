@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
         Title="Solitario Croce" Height="800" Width="630" ResizeMode="NoResize" Background="#FF146f50">
+    
     <!--#region Remove Hover Button event style -->
+    
     <Window.Resources>
         <Style x:Key="NoHoverButtonStyle" TargetType="Button">
             <Setter Property="Template">
@@ -24,15 +26,18 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
     <!-- #endregion -->
+    
     <Grid>
+        
+        <!--#region Deck-->
         
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,580,0,0">
             <Button
                 x:Name="Deck" 
                 Click="GetDeckCard" BorderThickness="0"
-                Style="{StaticResource NoHoverButtonStyle}"
-                >
+                Style="{StaticResource NoHoverButtonStyle}">
                 <Button.Background>
                     <ImageBrush
                         ImageSource="/images/RETRO.jpg"
@@ -40,7 +45,11 @@
                 </Button.Background>
             </Button>
         </Border>
-
+        
+        <!--#endregion-->
+        
+        <!--#region Picked Cards -->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,580,192,0">
             <Canvas 
                 x:Name="PickedCards"                
@@ -49,7 +58,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+                
+        <!--#endregion-->
+        
+        <!--#region CrossLow -->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,400,0,200">
             <Canvas 
                 Tag="s4"
@@ -60,7 +73,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+        
+        <!--#endregion-->
+        
+        <!--#region CrossRight-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,232,150,370">
             <Canvas 
                 Tag="s3"
@@ -71,7 +88,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+        
+        <!--#endregion-->
+        
+        <!--#region CrossMid -->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,232,0,370">
             <Canvas 
                 Tag="s2"
@@ -83,6 +104,10 @@
             </Canvas>
         </Border>
 
+        <!--#endregion-->
+        
+        <!--#region CrossLeft-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="150,232,0,370">
             <Canvas 
                 Tag="s1"
@@ -94,6 +119,10 @@
             </Canvas>
         </Border>
 
+        <!--#endregion-->
+        
+        <!--#region CrossTop-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,60,0,530">
             <Canvas 
                 Tag="s0"
@@ -104,7 +133,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+        
+        <!--#endregion-->
+        
+        <!--#region BaseLowRight-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,464,10,130">
             <Canvas 
                 Tag="b3"
@@ -114,7 +147,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+        
+        <!--#endregion-->
+        
+        <!--#region BaseLowLeft-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,464,0,130">
             <Canvas 
                 Tag="b2"
@@ -124,7 +161,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+    
+        <!--#endregion-->
+        
+        <!--#region BaseTopLeft-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,28,0,570">
             <Canvas 
                 Tag="b0"
@@ -134,7 +175,11 @@
                 Drop="Card_Drop">
             </Canvas>
         </Border>
-
+        
+        <!--#endregion-->
+        
+        <!--#region BaseTopRight-->
+        
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,28,10,570">
             <Canvas 
                 Tag="b1"
@@ -145,6 +190,7 @@
             </Canvas>
         </Border>
 
+        <!--#endregion-->
 
     </Grid>
 </Window>

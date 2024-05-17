@@ -22,8 +22,10 @@ namespace SolitarioCroce
         {
             InitializeComponent();
 
+            
+
             Card[] cards = table.GetCardsFromStacks();
-            Canvas[] canvas = { CrossLeft, CrossRight, CrossLow, CrossTop, CrossMid };
+            Canvas[] canvas = { CrossLeft, CrossRight, CrossLow, CrossTop, CrossMid }; 
 
             for (int i = 0; i < cards.Length; i++)
             {
@@ -41,20 +43,23 @@ namespace SolitarioCroce
         /// <param name="source">the canvas of origin in the drag and drop event</param>
         /// <param name="target">the canvas of destination in the drag and drop event</param>
         /// <returns>bool: true if stack-stack else stack-base</returns>
-        private (bool, int, int) GetTypeAndId_Movement(Canvas source, Canvas target)
+        
+        // todo: fix, doesn't work :)
+
+        /* private (bool, int, int) GetTypeAndId_Movement(Canvas source, Canvas target)
         {
             (bool type, int idx) source_type = (source.Tag.ToString()![0] == 's', int.Parse($"{source.Tag.ToString()![1]}"));
             (bool type, int idx) target_type = (source.Tag.ToString()![0] == 's', int.Parse($"{source.Tag.ToString()![1]}"));
 
-            if (source_type.type && target_type.type)
+           \ if (source_type.type && target_type.type)
                 return (true, source_type.idx, target_type.idx);
-        }
+        } */
 
         private void GetDeckCard(object sender, RoutedEventArgs e)
         {
             Card card = table.deck.GetCard();
 
-            if (table.deck.IsEmpty())
+            if (table.deck.IsEmpty()) // quando finiamo le carte togliamo il deck
             {
                 Deck.Background = Brushes.Transparent;
                 Deck.IsEnabled = false;
@@ -64,10 +69,11 @@ namespace SolitarioCroce
             image.ImageSource = new BitmapImage(new Uri(card.Path()));
             image.Stretch = Stretch.UniformToFill;
 
-            PickedCards.Background = image;
+            PickedCards.Background = image; // la carta è il background 
         }
 
-        private void Dragging_MouseMove(object sender, MouseEventArgs e)
+        // della meccanica di drag n drop controlla il tasto premuto del mouse
+        private void Dragging_MouseMove(object sender, MouseEventArgs e) 
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -75,7 +81,8 @@ namespace SolitarioCroce
             }
         }
 
-        private void Card_Drop(object sender, DragEventArgs e)
+        // meccanica del droppare le card su una base con AllowDrop=True
+        private void Card_Drop(object sender, DragEventArgs e) 
         {
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
