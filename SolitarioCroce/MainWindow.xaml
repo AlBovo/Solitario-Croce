@@ -29,9 +29,11 @@
 
     <!-- #endregion -->
     <Canvas 
-        x:Name="canvas"
+        x:Name="canva"
         DragOver="Canvas_DragOver"
-        Background="#FF146f50">
+        Background="#FF146f50"
+        AllowDrop="True"
+        Drop="canvas_Drop">
 
         <!--#region Deck-->
 
@@ -194,7 +196,12 @@
             </Border>
 
             <!--#endregion-->
-
+        <Canvas
+            x:Name="moving_card"
+            Background="Transparent"
+            Width="100" Height="160"
+            Canvas.Top="-500"
+            />
     </Canvas>
 
 </Window>
