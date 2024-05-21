@@ -1,13 +1,8 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SolitarioCroce
 {
@@ -16,7 +11,7 @@ namespace SolitarioCroce
     /// </summary>
     public partial class MainWindow : Window
     {
-        Table table = new Table();
+        readonly Table table = new Table();
 
         public MainWindow()
         {
@@ -44,12 +39,12 @@ namespace SolitarioCroce
         private (bool, int, int) GetTypeAndId_Movement(Canvas source, Canvas target)
         {
             (bool type, int idx) source_type = (source.Tag.ToString()![0] == 's', int.Parse($"{source.Tag.ToString()![1]}"));
-            (bool type, int idx) target_type = (source.Tag.ToString()![0] == 's', int.Parse($"{source.Tag.ToString()![1]}"));
+            (bool type, int idx) target_type = (target.Tag.ToString()![0] == 's', int.Parse($"{target.Tag.ToString()![1]}"));
 
             if (source_type.type && target_type.type)
                 return (true, source_type.idx, target_type.idx);
             else
-                return (false, source_type.idx, source_type.idx);
+                return (false, source_type.idx, target_type.idx);
         }
 
         private void GetDeckCard(object sender, RoutedEventArgs e)
@@ -67,14 +62,13 @@ namespace SolitarioCroce
             image.Stretch = Stretch.UniformToFill;
 
             PickedCards.Background = image;
+            table.AddCardToPicked(card);
         }
 
         private void Dragging_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
-            {
                 DragDrop.DoDragDrop((Canvas)e.Source, (Canvas)e.Source, DragDropEffects.Move);
-            }
         }
 
         private void Card_Drop(object sender, DragEventArgs e)
@@ -87,13 +81,15 @@ namespace SolitarioCroce
             Canvas target = (Canvas)e.Source;
 
             (bool Type, int source_idx, int target_idx) Action = GetTypeAndId_Movement(source, target);
+            bool movementOK;
 
             if (Action.Type) //stack
-                table.ChangeCardStack(Action.source_idx, Action.target_idx);
+                movementOK = table.ChangeCardStack(Action.source_idx, Action.target_idx);
             else             //base
-                table.ChangeCardBase(Action.source_idx, Action.target_idx);
+                movementOK = table.ChangeCardBase(Action.source_idx, Action.target_idx);
 
-            target.Background = source.Background;
+            if (movementOK)
+                target.Background = source.Background;
         }
 
         private void Canvas_DragOver(object sender, DragEventArgs e)

@@ -28,7 +28,7 @@
         /// <param name="stackFrom">id of the starter stack.</param>
         /// <param name="stackTo">id of the stack where is moved the card.</param>
         /// <exception cref="ArgumentException">Some of the parameters are not correct.</exception>
-        public void ChangeCardStack(int stackFrom, int stackTo)
+        public bool ChangeCardStack(int stackFrom, int stackTo)
         {
             if (stackFrom < 0 || stackFrom > 5)
                 throw new ArgumentException("The id of the first stack is not valid");
@@ -37,7 +37,7 @@
                 throw new ArgumentException("The id of the second stack is not valid");
 
             if (stackFrom == stackTo)
-                return;
+                return false;
 
             if (stacks[stackFrom] == null || stacks[stackFrom].Count == 0)
                 throw new ArgumentException("Cannot extract card from empty stack.");
@@ -47,13 +47,17 @@
             if (stacks[stackTo].Count == 0)
             {
                 stacks[stackTo].Push(cardFrom);
-                return;
+                return false;
             }
 
             Card cardTo = stacks[stackTo].Peek();
 
             if (cardTo.Seed != cardFrom.Seed && cardTo.Value == cardFrom.Value - 1)
+            {
                 stacks[stackTo].Push(stacks[stackFrom].Pop());
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -73,6 +77,15 @@
             }
 
             return cards;
+        }
+
+        /// <summary>
+        /// Add a card to the picked cards stack.
+        /// </summary>
+        /// <param name="card">The card to add in the stack.</param>
+        public void AddCardToPicked(Card card)
+        {
+            stacks[5].Push(card);
         }
 
         /// <summary>
@@ -97,7 +110,7 @@
         /// <param name="stackFrom">id of the starter stack.</param>
         /// <param name="stackTo">id of the base where is moved the card.</param>
         /// <exception cref="ArgumentException">Some of the parameters are not correct.</exception>
-        public void ChangeCardBase(int stackFrom, int baseTo)
+        public bool ChangeCardBase(int stackFrom, int baseTo)
         {
             if (stackFrom < 0 || stackFrom > 5)
                 throw new ArgumentException("The id of the stack is not valid");
@@ -108,22 +121,26 @@
             Card card = stacks[stackFrom].Peek();
 
             if (bases[baseTo].Seed != card.Seed)
-                return;
+                return false;
 
             if (bases[baseTo].Value != card.Value - 1)
-                return;
+                return false;
 
             bases[baseTo] = stacks[stackFrom].Pop();
+            return true;
         }
 
         public Table()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 stacks[i] = new Stack<Card>();
 
                 if (i <= 4)
                     stacks[i].Push(deck.GetCard());
+
+                if (i <= 3)
+                    bases[i] = new Card((Card.Seeds)i, 0);
             }
         }
     }

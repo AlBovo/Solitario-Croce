@@ -93,7 +93,7 @@ namespace SolitarioCroce
         /// <exception cref="Exception">thrown if the deck is Empty</exception>
         public Card GetCard()
         {
-            if (deck.Count == 0)
+            if (IsEmpty())
                 throw new Exception("deck is Empty.");
 
             return deck.Dequeue();
