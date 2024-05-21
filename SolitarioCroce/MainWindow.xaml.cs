@@ -96,5 +96,17 @@ namespace SolitarioCroce
             target.Background = source.Background;
         }
 
+        private void Canvas_DragOver(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(typeof(Canvas)))
+                return;
+
+            //watch out when you keep the left button pressed on nothing and pass over another card
+            Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
+            Point dropPosition = e.GetPosition(canvas);
+
+            Canvas.SetLeft(source, dropPosition.X);
+            Canvas.SetTop(source, dropPosition.Y);
+        }
     }
 }

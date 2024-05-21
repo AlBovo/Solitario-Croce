@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
-        Title="Solitario Croce" Height="800" Width="630" ResizeMode="NoResize" Background="#FF146f50">
-    
+        Title="Solitario Croce" Height="800" Width="630" ResizeMode="NoResize">
+
     <!--#region Remove Hover Button event style -->
-    
+
     <Window.Resources>
         <Style x:Key="NoHoverButtonStyle" TargetType="Button">
             <Setter Property="Template">
@@ -26,172 +26,175 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
+
     <!-- #endregion -->
-    
-    <Grid>
-        
+    <Canvas 
+        x:Name="canvas"
+        DragOver="Canvas_DragOver"
+        Background="#FF146f50">
+
         <!--#region Deck-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,580,0,0">
-            <Button
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,580,0,0">
+                <Button
                 x:Name="Deck" 
                 Click="GetDeckCard" BorderThickness="0"
                 Style="{StaticResource NoHoverButtonStyle}">
-                <Button.Background>
-                    <ImageBrush
+                    <Button.Background>
+                        <ImageBrush
                         ImageSource="/images/RETRO.jpg"
                         Stretch="UniformToFill"/>
-                </Button.Background>
-            </Button>
-        </Border>
-        
-        <!--#endregion-->
-        
-        <!--#region Picked Cards -->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,580,192,0">
-            <Canvas 
+                    </Button.Background>
+                </Button>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region Picked Cards -->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Canvas.Left="310" Canvas.Top="580">
+                <Canvas 
                 Tag="s5"
                 x:Name="PickedCards"                
                 AllowDrop="False"
                 MouseMove="Dragging_MouseMove"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-                
-        <!--#endregion-->
-        
-        <!--#region CrossLow -->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,400,0,200">
-            <Canvas 
-                Tag="s4"
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region CrossLow -->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="410" Canvas.Left="250">
+                <Canvas 
+                Tag="s2"
                 x:Name="CrossLow"                
                 AllowDrop="True"
                 Background="Transparent"
                 MouseMove="Dragging_MouseMove"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-        
-        <!--#endregion-->
-        
-        <!--#region CrossRight-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,232,150,370">
-            <Canvas 
-                Tag="s3"
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region CrossRight-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="360">
+                <Canvas 
+                Tag="s1"
                 x:Name="CrossRight"                
                 AllowDrop="True"
                 Background="Transparent"
                 MouseMove="Dragging_MouseMove"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-        
-        <!--#endregion-->
-        
-        <!--#region CrossMid -->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,232,0,370">
-            <Canvas 
-                Tag="s2"
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region CrossMid -->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="250">
+                <Canvas 
+                Tag="s4"
                 x:Name="CrossMid"                
                 AllowDrop="True"
                 Background="Transparent"
                 MouseMove="Dragging_MouseMove"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
+                </Canvas>
+            </Border>
 
-        <!--#endregion-->
-        
-        <!--#region CrossLeft-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="150,232,0,370">
-            <Canvas 
-                Tag="s1"
+            <!--#endregion-->
+
+            <!--#region CrossLeft-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="140">
+                <Canvas 
+                Tag="s0"
                 x:Name="CrossLeft"                
                 AllowDrop="True"
                 Background="Transparent"
                 MouseMove="Dragging_MouseMove"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
+                </Canvas>
+            </Border>
 
-        <!--#endregion-->
-        
-        <!--#region CrossTop-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Center" Margin="0,60,0,530">
-            <Canvas 
-                Tag="s0"
+            <!--#endregion-->
+
+            <!--#region CrossTop-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="70" Canvas.Left="250">
+                <Canvas 
+                Tag="s3"
                 x:Name="CrossTop"                
                 AllowDrop="True"
                 Background="Transparent"
                 MouseMove="Dragging_MouseMove"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-        
-        <!--#endregion-->
-        
-        <!--#region BaseLowRight-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,464,10,130">
-            <Canvas 
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region BaseLowRight-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="500" Canvas.Left="500">
+                <Canvas 
                 Tag="b3"
                 x:Name="BaseLowRight"                
                 Background="Transparent"
                 AllowDrop="True"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-        
-        <!--#endregion-->
-        
-        <!--#region BaseLowLeft-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,464,0,130">
-            <Canvas 
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region BaseLowLeft-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="500" Canvas.Left="20">
+                <Canvas 
                 Tag="b2"
                 x:Name="BaseLowLeft"                
                 AllowDrop="True"
                 Background="Transparent"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-    
-        <!--#endregion-->
-        
-        <!--#region BaseTopLeft-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="10,28,0,570">
-            <Canvas 
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region BaseTopLeft-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="20" Canvas.Left="20">
+                <Canvas 
                 Tag="b0"
                 x:Name="BaseTopLeft"                
                 AllowDrop="True"
                 Background="Transparent"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
-        
-        <!--#endregion-->
-        
-        <!--#region BaseTopRight-->
-        
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,28,10,570">
-            <Canvas 
+                </Canvas>
+            </Border>
+
+            <!--#endregion-->
+
+            <!--#region BaseTopRight-->
+
+            <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="20" Canvas.Left="500">
+                <Canvas 
                 Tag="b1"
                 x:Name="BaseTopRight"                
                 AllowDrop="True"
                 Background="Transparent"
                 Drop="Card_Drop">
-            </Canvas>
-        </Border>
+                </Canvas>
+            </Border>
 
-        <!--#endregion-->
+            <!--#endregion-->
 
-    </Grid>
+    </Canvas>
+
 </Window>
