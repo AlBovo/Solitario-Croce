@@ -17,8 +17,11 @@ namespace SolitarioCroce
         {
             InitializeComponent();
 
-            Panel.SetZIndex(canva, -1);
-            Card[] cards = table.GetCardsFromStacks();
+            Panel.SetZIndex(canva, -100);
+            Card[] cards = new Card[5];
+            for (int i = 0; i < 5; i++)
+                cards[i] = table.GetCardsFromStacks(i);
+
             Canvas[] canvas = { CrossLeft, CrossRight, CrossLow, CrossTop, CrossMid };
 
             for (int i = 0; i < cards.Length; i++)
@@ -58,12 +61,16 @@ namespace SolitarioCroce
                 Deck.IsEnabled = false;
             }
 
+            PickedCards.Background = create_Image_from_card(card);
+            table.AddCardToPicked(card);
+        }
+
+        private ImageBrush create_Image_from_card(Card card)
+        {
             ImageBrush image = new ImageBrush();
             image.ImageSource = new BitmapImage(new Uri(card.Path()));
             image.Stretch = Stretch.UniformToFill;
-
-            PickedCards.Background = image;
-            table.AddCardToPicked(card);
+            return image;
         }
 
         private void Dragging_MouseMove(object sender, MouseEventArgs e)
@@ -73,7 +80,7 @@ namespace SolitarioCroce
                 Canvas source = (Canvas)e.Source;
                 moving_card.Background = source.Background;
                 moving_card.Tag = source.Tag;
-                DragDrop.DoDragDrop((Canvas)e.Source, moving_card, DragDropEffects.Move);
+                DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
             }
         }
 
@@ -95,7 +102,14 @@ namespace SolitarioCroce
                 movementOK = table.ChangeCardBase(Action.source_idx, Action.target_idx);
 
             if (movementOK)
+            {
                 target.Background = source.Background;
+                Card below = table.GetCardsFromStacks(Action.source_idx);
+                if (below != null)
+                    source.Background = create_Image_from_card(below);
+                else
+                    source.Background = Brushes.Transparent;
+            }
         }
 
         private void Canvas_DragOver(object sender, DragEventArgs e)
@@ -103,12 +117,10 @@ namespace SolitarioCroce
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
 
-            //watch out when you keep the left button pressed on nothing and pass over another card
-            Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
             Point dropPosition = e.GetPosition(canva);
 
-            Canvas.SetLeft(source, dropPosition.X);
-            Canvas.SetTop(source, dropPosition.Y);
+            Canvas.SetLeft(moving_card, dropPosition.X+10);
+            Canvas.SetTop(moving_card, dropPosition.Y+10);
         }
 
         private void canvas_Drop(object sender, DragEventArgs e)

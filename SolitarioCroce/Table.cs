@@ -64,19 +64,12 @@
         /// A function to find the cards at the top of stacks (indexes in range [0;5])
         /// </summary>
         /// <returns>An array of cards at the top of each stack.</returns>
-        public Card[] GetCardsFromStacks()
+        public Card GetCardsFromStacks(int index)
         {
-            Card[] cards = new Card[5];
-
-            for (int i = 0; i < cards.Length; i++)
-            {
-                if (stacks[i].Count == 0)
-                    cards[i] = null;
-                else
-                    cards[i] = stacks[i].Peek();
-            }
-
-            return cards;
+            if (stacks[index].Count == 0)
+                return null;
+            else
+                return stacks[index].Peek();
         }
 
         /// <summary>
