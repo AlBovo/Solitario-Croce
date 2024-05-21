@@ -47,7 +47,7 @@
             if (stacks[stackTo].Count == 0)
             {
                 stacks[stackTo].Push(cardFrom);
-                return false;
+                return true;
             }
 
             Card cardTo = stacks[stackTo].Peek();
