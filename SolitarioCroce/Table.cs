@@ -30,10 +30,10 @@
         /// <exception cref="ArgumentException">Some of the parameters are not correct.</exception>
         public void ChangeCardStack(int stackFrom, int stackTo)
         {
-            if (stackFrom < 0 || stackFrom > 4)
+            if (stackFrom < 0 || stackFrom > 5)
                 throw new ArgumentException("The id of the first stack is not valid");
 
-            if (stackTo < 0 || stackTo > 4)
+            if (stackTo < 0 || stackTo > 5)
                 throw new ArgumentException("The id of the second stack is not valid");
 
             if (stackFrom == stackTo)
@@ -99,7 +99,7 @@
         /// <exception cref="ArgumentException">Some of the parameters are not correct.</exception>
         public void ChangeCardBase(int stackFrom, int baseTo)
         {
-            if (stackFrom < 0 || stackFrom > 4)
+            if (stackFrom < 0 || stackFrom > 5)
                 throw new ArgumentException("The id of the stack is not valid");
 
             if (baseTo < 0 || baseTo > 3)

@@ -52,6 +52,7 @@
         
         <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Margin="0,580,192,0">
             <Canvas 
+                Tag="s5"
                 x:Name="PickedCards"                
                 AllowDrop="False"
                 MouseMove="Dragging_MouseMove"
