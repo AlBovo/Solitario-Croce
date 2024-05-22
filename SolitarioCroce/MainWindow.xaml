@@ -58,9 +58,9 @@
                 <Canvas 
                 Tag="s5"
                 x:Name="PickedCards"                
-                AllowDrop="False"
+                AllowDrop="True"
                 MouseMove="Dragging_MouseMove"
-                Drop="Card_Drop">
+                Drop="canvas_Drop">
                 </Canvas>
             </Border>
 

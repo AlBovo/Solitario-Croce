@@ -47,12 +47,13 @@
             if (stacks[stackTo].Count == 0)
             {
                 stacks[stackTo].Push(cardFrom);
+                stacks[stackFrom].Pop();
                 return true;
             }
 
             Card cardTo = stacks[stackTo].Peek();
 
-            if (cardTo.Seed != cardFrom.Seed && cardTo.Value == cardFrom.Value - 1)
+            if (cardTo.Seed != cardFrom.Seed && cardTo.Value == cardFrom.Value + 1)
             {
                 stacks[stackTo].Push(stacks[stackFrom].Pop());
                 return true;

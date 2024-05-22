@@ -22,16 +22,19 @@ namespace SolitarioCroce
             for (int i = 0; i < 5; i++)
                 cards[i] = table.GetCardsFromStacks(i);
 
+            BaseTopLeft.Background = create_Image_from_card(new Card(Card.Seeds.Denari, 1));
+            BaseTopLeft.Background.Opacity = 0.5;
+            BaseTopRight.Background = create_Image_from_card(new Card(Card.Seeds.Coppe, 1));
+            BaseTopRight.Background.Opacity = 0.5;
+            BaseLowLeft.Background = create_Image_from_card(new Card(Card.Seeds.Spade, 1));
+            BaseLowLeft.Background.Opacity = 0.5;
+            BaseLowRight.Background = create_Image_from_card(new Card(Card.Seeds.Bastoni, 1));
+            BaseLowRight.Background.Opacity = 0.5;
+
             Canvas[] canvas = { CrossLeft, CrossRight, CrossLow, CrossTop, CrossMid };
 
             for (int i = 0; i < cards.Length; i++)
-            {
-                ImageBrush image = new ImageBrush();
-                image.ImageSource = new BitmapImage(new Uri(cards[i].Path()));
-                image.Stretch = Stretch.UniformToFill;
-
-                canvas[i].Background = image;
-            }
+                canvas[i].Background = create_Image_from_card(cards[i]);
         }
 
         /// <summary>
