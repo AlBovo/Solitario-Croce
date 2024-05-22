@@ -11,19 +11,22 @@ namespace SolitarioCroce
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly Table table = new Table();
-
         public MainWindow()
         {
             InitializeComponent();
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Game_Click(object sender, RoutedEventArgs e)
         {
             GameWindow game = new GameWindow();
             this.Close();
             game.Show();
+        }
+
+        private void Rules_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
