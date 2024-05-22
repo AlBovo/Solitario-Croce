@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SolitarioCroce
 {
     /// <summary>
-    /// Logica di interazione per rules.xaml
+    /// Logica di interazione per Rules.xaml
     /// </summary>
-    public partial class rules : Page
+    public partial class Rules : Page
     {
-        public rules()
+        public Rules()
         {
             InitializeComponent();
         }

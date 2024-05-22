@@ -26,7 +26,7 @@ namespace SolitarioCroce
 
         private void Rules_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Content = new Rules();
         }
     }
 }
