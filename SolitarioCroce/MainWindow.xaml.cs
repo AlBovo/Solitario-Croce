@@ -14,17 +14,16 @@ namespace SolitarioCroce
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
-        private void Game_Click(object sender, RoutedEventArgs e)
+        public void Game_Click(object sender, RoutedEventArgs e)
         {
             GameWindow game = new GameWindow();
             this.Close();
             game.Show();
         }
 
-        private void Rules_Click(object sender, RoutedEventArgs e)
+        public void Rules_Click(object sender, RoutedEventArgs e)
         {
             this.Content = new Rules();
         }

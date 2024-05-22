@@ -6,10 +6,21 @@
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
         Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize">
-    <Grid>
-        <Button Content="Gioca!" HorizontalAlignment="Left" Height="70" Margin="221,83,0,0" VerticalAlignment="Top" Width="195" Click="Game_Click"/>
-        <Button Content="Regole" HorizontalAlignment="Left" Margin="221,237,0,0" VerticalAlignment="Top" Height="70" Width="195" Click="Rules_Click"/>
-
+    <Grid Background="#FF146f50">
+        <Button Content="Gioca!" HorizontalAlignment="Left" Height="70" Margin="221,83,0,0" VerticalAlignment="Top" Width="195" Click="Game_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Regole" HorizontalAlignment="Left" Margin="221,237,0,0" VerticalAlignment="Top" Height="70" Width="195" Click="Rules_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 
 </Window>
