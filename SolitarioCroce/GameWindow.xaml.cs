@@ -89,6 +89,7 @@ namespace SolitarioCroce
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 Canvas source = (Canvas)e.Source;
+                source.Opacity = 0.5;
                 moving_card.Background = source.Background;
                 moving_card.Tag = source.Tag;
                 DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
@@ -121,6 +122,9 @@ namespace SolitarioCroce
                 else
                     source.Background = Brushes.Transparent;
             }
+
+            //remove opacity from source
+            source.Opacity = 1;
         }
 
         private void Canvas_DragOver(object sender, DragEventArgs e)
@@ -138,7 +142,8 @@ namespace SolitarioCroce
         {
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
-
+            Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
+            source.Opacity = 1;
             Canvas.SetTop(moving_card, -500);
         }
     }
