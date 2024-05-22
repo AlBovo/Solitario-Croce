@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="images\0A.jpg" />
+    <None Remove="images\0B.jpg" />
+    <None Remove="images\0C.jpg" />
+    <None Remove="images\0D.jpg" />
     <None Remove="images\10A.jpg" />
     <None Remove="images\10B.jpg" />
     <None Remove="images\10C.jpg" />
@@ -53,6 +57,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="images\0A.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\0B.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\0C.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\0D.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="images\10A.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
