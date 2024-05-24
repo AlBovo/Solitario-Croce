@@ -25,7 +25,7 @@ namespace SolitarioCroce
         {
             InitializeComponent();
 
-            Panel.SetZIndex(canva, -100);
+            Panel.SetZIndex(canva, 0);
             Card[] cards = new Card[5];
             for (int i = 0; i < 5; i++)
                 cards[i] = table.GetCardsFromStacks(i);
@@ -88,6 +88,7 @@ namespace SolitarioCroce
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+                Panel.SetZIndex(moving_card, 1);
                 Canvas source = (Canvas)e.Source;
                 source.Opacity = 0.5;
                 moving_card.Background = source.Background;
@@ -125,6 +126,7 @@ namespace SolitarioCroce
 
             //remove opacity from source
             source.Opacity = 1;
+            
         }
 
         private void Canvas_DragOver(object sender, DragEventArgs e)
@@ -134,17 +136,27 @@ namespace SolitarioCroce
 
             Point dropPosition = e.GetPosition(canva);
 
-            Canvas.SetLeft(moving_card, dropPosition.X + 10);
-            Canvas.SetTop(moving_card, dropPosition.Y + 10);
+            Canvas.SetLeft(moving_card, dropPosition.X - (int)(moving_card.ActualWidth/2));
+            Canvas.SetTop(moving_card, dropPosition.Y - (int)(moving_card.ActualHeight/2));
         }
 
-        private void canvas_Drop(object sender, DragEventArgs e)
+        private void canva_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
             Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
             source.Opacity = 1;
             Canvas.SetTop(moving_card, -500);
+        }
+        private void moving_card_Drop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(typeof(Canvas)))
+                return;
+
+            //starts another drag drop and puts the card behind the canva, the card_drop or canva_drop event is then triggered
+            Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
+            Panel.SetZIndex(moving_card, -1);
+            DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
         }
     }
 }

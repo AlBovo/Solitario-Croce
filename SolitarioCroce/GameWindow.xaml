@@ -32,7 +32,7 @@
     DragOver="Canvas_DragOver"
     Background="#FF146f50"
     AllowDrop="True"
-    Drop="canvas_Drop">
+    Drop="canva_Drop">
 
         <!--#region Deck-->
 
@@ -59,7 +59,7 @@
             x:Name="PickedCards"                
             AllowDrop="True"
             MouseMove="Dragging_MouseMove"
-            Drop="canvas_Drop">
+            Drop="canva_Drop">
             </Canvas>
         </Border>
 
@@ -199,7 +199,10 @@
         x:Name="moving_card"
         Background="Transparent"
         Width="100" Height="160"
+        Panel.ZIndex="1"
         Canvas.Top="-500"
+        AllowDrop="True"
+        Drop="moving_card_Drop"
         />
     </Canvas>
 
