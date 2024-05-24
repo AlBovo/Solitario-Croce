@@ -11,12 +11,47 @@
 
     <Grid Background="#FF146f50">
         <wv2:WebView2 Name="iframe" HorizontalAlignment="Left" Width="400" DefaultBackgroundColor="#FF146f50"/>
-        <Button Content="Menu" Panel.ZIndex="1" FontSize="20" HorizontalAlignment="Left" Margin="510,350,0,0" VerticalAlignment="Top" Height="40" Width="170" Click="Button_Click">
+        <Button Content="Menu" Panel.ZIndex="1" FontSize="20" HorizontalAlignment="Left" Margin="510,370,0,0" VerticalAlignment="Top" Height="40" Width="170" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="425,30,0,0" TextWrapping="Wrap" Width="340" VerticalAlignment="Top" FontSize="15" Foreground="#FFDDDDDD">
+            <BulletDecorator>
+                  <BulletDecorator.Bullet>
+                    <Ellipse Height="5" Width="5" Fill="#FFDDDDDD"/>
+                  </BulletDecorator.Bullet>
+            </BulletDecorator>
+            Nelle basi ci vanno carte dello stesso seme in ordine crescente, una volta che una carta viene messa in una base agli angoli del campo non può più essere tolta.
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="425,115,0,0" TextWrapping="Wrap" Width="340" VerticalAlignment="Top" FontSize="15" Foreground="#FFDDDDDD">
+            <BulletDecorator>
+                  <BulletDecorator.Bullet>
+                    <Ellipse Height="5" Width="5" Fill="#FFDDDDDD"/>
+                  </BulletDecorator.Bullet>
+            </BulletDecorator>
+            Nella croce al centro le carte vanno messe in  ordine decrescente e la carta che stai aggiungendo deve avere seme diverso dalla precedente.
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="425,180,0,0" TextWrapping="Wrap" Width="340" VerticalAlignment="Top" FontSize="15" Foreground="#FFDDDDDD">
+            <BulletDecorator>
+                  <BulletDecorator.Bullet>
+                    <Ellipse Height="5" Width="5" Fill="#FFDDDDDD"/>
+                  </BulletDecorator.Bullet>
+            </BulletDecorator>
+            Il gioco finisce quando completi tutte e 4 le basi agli angoli.
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="425,225,0,0" TextWrapping="Wrap" Width="340" VerticalAlignment="Top" FontSize="15" Foreground="#FFDDDDDD">
+            <BulletDecorator>
+                  <BulletDecorator.Bullet>
+                    <Ellipse Height="5" Width="5" Fill="#FFDDDDDD"/>
+                  </BulletDecorator.Bullet>
+            </BulletDecorator>
+            Oltre alle basi e alla croce avrai un mazzo da cui pescare le carte e una pila in cui ci sarà l’ultima carta che hai pescato, le carte non possono essere inserite in questa pila però.
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="429,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFDDDDDD" FontSize="15" FontWeight="Bold">
+            Per capire meglio guarda il video qua di fianco.
+        </TextBlock>
     </Grid>
 </Window>
