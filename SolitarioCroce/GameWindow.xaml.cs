@@ -12,6 +12,7 @@ namespace SolitarioCroce
     public partial class GameWindow : Window
     {
         readonly Table table = new Table();
+        bool drop_from_user = true;
 
         public GameWindow()
         {
@@ -80,11 +81,11 @@ namespace SolitarioCroce
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
+                drop_from_user = true;
                 Panel.SetZIndex(moving_card, 1);
                 Canvas source = (Canvas)e.Source;
                 source.Opacity = 0.5;
                 moving_card.Background = source.Background;
-                moving_card.Tag = source.Tag;
                 DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
             }
         }
@@ -94,7 +95,6 @@ namespace SolitarioCroce
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
 
-            //watch out when you keep the left button pressed on nothing and pass over another card
             Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
             Canvas target = (Canvas)e.Source;
 
@@ -118,7 +118,7 @@ namespace SolitarioCroce
 
             //remove opacity from source
             source.Opacity = 1;
-            
+
         }
 
         private void Canvas_DragOver(object sender, DragEventArgs e)
@@ -128,14 +128,15 @@ namespace SolitarioCroce
 
             Point dropPosition = e.GetPosition(canva);
 
-            Canvas.SetLeft(moving_card, dropPosition.X - (int)(moving_card.ActualWidth/2));
-            Canvas.SetTop(moving_card, dropPosition.Y - (int)(moving_card.ActualHeight/2));
+            Canvas.SetLeft(moving_card, dropPosition.X - (int)(moving_card.ActualWidth / 2));
+            Canvas.SetTop(moving_card, dropPosition.Y - (int)(moving_card.ActualHeight / 2));
         }
 
         private void canva_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(typeof(Canvas)))
                 return;
+
             Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
             source.Opacity = 1;
             Canvas.SetTop(moving_card, -500);
@@ -148,7 +149,11 @@ namespace SolitarioCroce
             //starts another drag drop and puts the card behind the canva, the card_drop or canva_drop event is then triggered
             Canvas source = (Canvas)e.Data.GetData(typeof(Canvas));
             Panel.SetZIndex(moving_card, -1);
-            DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
+            if (drop_from_user)
+            {
+                drop_from_user = false;
+                DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
+            }
         }
     }
 }
