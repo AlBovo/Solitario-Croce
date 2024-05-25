@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:SolitarioCroce"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="SevenSegmentDisplay">
+            ./fonts/SevenSegment.ttf#Seven Segment Display
+        </FontFamily>
     </Application.Resources>
 </Application>

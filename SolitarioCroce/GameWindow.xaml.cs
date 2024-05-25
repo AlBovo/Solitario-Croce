@@ -3,6 +3,8 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace SolitarioCroce
 {
@@ -11,6 +13,8 @@ namespace SolitarioCroce
     /// </summary>
     public partial class GameWindow : Window
     {
+        DispatcherTimer timer; // creating a new timer
+        double time = 0;
         readonly Table table = new Table();
         bool drop_from_user = true;
 
@@ -36,6 +40,16 @@ namespace SolitarioCroce
 
             for (int i = 0; i < cards.Length; i++)
                 canvas[i].Background = create_Image_from_card(cards[i]);
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(10); // this timer will trigger every 10 milliseconds
+            timer.Start(); // starting the timer
+            timer.Tick += timer_Tick; // with each tick it will trigger this function
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            time += timer.Interval.TotalSeconds;
+            txt_Timer.Text = $"{time:0.00}";
         }
 
         /// <summary>

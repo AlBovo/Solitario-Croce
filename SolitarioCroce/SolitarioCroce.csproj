@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="fonts\SevenSegment.ttf" />
     <None Remove="images\0A.jpg" />
     <None Remove="images\0B.jpg" />
     <None Remove="images\0C.jpg" />
@@ -61,6 +62,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="fonts\SevenSegment.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="images\0A.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

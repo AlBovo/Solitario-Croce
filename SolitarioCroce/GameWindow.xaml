@@ -218,6 +218,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <TextBlock x:Name="txt_Timer" Height="40" Canvas.Left="125" TextWrapping="Wrap" Text="Timer" Width="370" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" FontFamily="{StaticResource SevenSegmentDisplay}"/>
     </Canvas>
 
 </Window>
