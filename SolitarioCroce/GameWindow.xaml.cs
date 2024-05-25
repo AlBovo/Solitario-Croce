@@ -155,5 +155,19 @@ namespace SolitarioCroce
                 DragDrop.DoDragDrop(source, source, DragDropEffects.Move);
             }
         }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            GameWindow game = new GameWindow();
+            this.Close();
+            game.Show();
+        }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
     }
 }

@@ -36,7 +36,7 @@
 
         <!--#region Deck-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Margin="192,580,0,0">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Canvas.Left="204" Canvas.Top="580" VerticalAlignment="Center">
             <Button
             x:Name="Deck" 
             Click="GetDeckCard" BorderThickness="0"
@@ -53,7 +53,7 @@
 
         <!--#region Picked Cards -->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Right" Canvas.Left="310" Canvas.Top="580">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Canvas.Left="319" Canvas.Top="580" VerticalAlignment="Center">
             <Canvas 
             Tag="s5"
             x:Name="PickedCards"                
@@ -67,7 +67,7 @@
 
         <!--#region CrossLow -->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="410" Canvas.Left="250">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="410" Canvas.Left="259" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s2"
             x:Name="CrossLow"                
@@ -82,7 +82,7 @@
 
         <!--#region CrossRight-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="360">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="369" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s1"
             x:Name="CrossRight"                
@@ -97,7 +97,7 @@
 
         <!--#region CrossMid -->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="250">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="259" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s4"
             x:Name="CrossMid"                
@@ -112,7 +112,7 @@
 
         <!--#region CrossLeft-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="140">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="240" Canvas.Left="149" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s0"
             x:Name="CrossLeft"                
@@ -127,7 +127,7 @@
 
         <!--#region CrossTop-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="70" Canvas.Left="250">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="70" Canvas.Left="259" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s3"
             x:Name="CrossTop"                
@@ -196,14 +196,28 @@
 
         <!--#endregion-->
         <Canvas
-        x:Name="moving_card"
-        Background="Transparent"
-        Width="100" Height="160"
-        Panel.ZIndex="1"
-        Canvas.Top="-500"
-        AllowDrop="True"
-        Drop="moving_card_Drop"
+            x:Name="moving_card"
+            Background="Transparent"
+            Width="100" Height="160"
+            Panel.ZIndex="1"
+            Canvas.Top="-500"
+            AllowDrop="True"
+            Drop="moving_card_Drop"
         />
+        <Button Content="Abbandona" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Top" Height="50" Width="150" Canvas.Left="450" Canvas.Top="700" Click="Quit_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Menu" FontSize="20" Height="50" Width="150" Canvas.Left="20" Canvas.Top="700" HorizontalAlignment="Left" VerticalAlignment="Center" Click="Menu_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Canvas>
 
 </Window>
