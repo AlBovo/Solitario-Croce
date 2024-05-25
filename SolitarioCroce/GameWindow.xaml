@@ -204,7 +204,7 @@
             AllowDrop="True"
             Drop="moving_card_Drop"
         />
-        <Button Content="Abbandona" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Top" Height="50" Width="150" Canvas.Left="450" Canvas.Top="700" Click="Quit_Click">
+        <Button Content="Reset" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Top" Height="50" Width="150" Canvas.Left="450" Canvas.Top="700" Click="Reset_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

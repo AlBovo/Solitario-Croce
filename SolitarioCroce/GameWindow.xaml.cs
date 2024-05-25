@@ -170,18 +170,36 @@ namespace SolitarioCroce
             }
         }
 
-        private void Quit_Click(object sender, RoutedEventArgs e)
+        private void Reset_Click(object sender, RoutedEventArgs e)
         {
             GameWindow game = new GameWindow();
-            this.Close();
-            game.Show();
+            var result = MessageBox.Show(
+                "Sei sicuro di voler resettare?",
+                "Reset",
+                MessageBoxButton.YesNo
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+                game.Show();
+            }
         }
 
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            this.Close();
-            main.Show();
+            var result = MessageBox.Show(
+                "Sei sicuro di voler tornare al menu?",
+                "Torna il menu",
+                MessageBoxButton.YesNo
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                this.Close();
+                main.Show();
+            }
         }
     }
 }
