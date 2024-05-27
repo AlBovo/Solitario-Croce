@@ -54,6 +54,7 @@
     <None Remove="images\9B.jpg" />
     <None Remove="images\9C.jpg" />
     <None Remove="images\9D.jpg" />
+    <None Remove="images\logo_solitario_croce-2.png" />
     <None Remove="images\RETRO.jpg" />
   </ItemGroup>
 
@@ -197,6 +198,7 @@
     <Resource Include="images\9D.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="images\logo_solitario_croce-2.png" />
     <Resource Include="images\RETRO.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

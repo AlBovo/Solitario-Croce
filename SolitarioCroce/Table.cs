@@ -111,8 +111,15 @@
 
             if (baseTo < 0 || baseTo > 3)
                 throw new ArgumentException("The id of the base is not valid");
-
-            Card card = stacks[stackFrom].Peek();
+            Card card;
+            try
+            {
+               card = stacks[stackFrom].Peek();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
 
             if (bases[baseTo].Seed != card.Seed)
                 return false;

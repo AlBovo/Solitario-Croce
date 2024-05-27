@@ -7,20 +7,25 @@
         mc:Ignorable="d"
         Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize">
     <Grid Background="#FF146f50">
-        <Button Content="Gioca!" HorizontalAlignment="Left" FontSize="20"  Height="70" Margin="221,83,0,0" VerticalAlignment="Top" Width="195" Click="Game_Click">
+        <Button Content="Gioca!" HorizontalAlignment="Center" FontSize="20"  Height="40" VerticalAlignment="Top" Width="174" Click="Game_Click" Margin="0,233,0,0">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Regole" HorizontalAlignment="Left" FontSize="20" Margin="221,237,0,0" VerticalAlignment="Top" Height="70" Width="195" Click="Rules_Click">
+        <Button Content="Regole" HorizontalAlignment="Center" FontSize="20" Margin="0,293,0,0" VerticalAlignment="Top" Height="38" Width="174" Click="Rules_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
+        <Rectangle Margin="132,19,132,111">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/images/logo_solitario_croce-2.png" /> 
+            </Rectangle.Fill>
+        </Rectangle>
     </Grid>
 
 </Window>
