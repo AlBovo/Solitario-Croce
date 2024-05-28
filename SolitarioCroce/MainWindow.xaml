@@ -23,9 +23,10 @@
         </Button>
         <Rectangle Margin="132,19,132,111">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="pack://application:,,,/images/logo_solitario_croce-2.png" /> 
+                <ImageBrush ImageSource="pack://application:,,,/images/logo_solitario_croce-2.png" />
             </Rectangle.Fill>
         </Rectangle>
+        <TextBlock x:Name="txt_easterEgg" HorizontalAlignment="Left" Margin="487,343,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="41" Width="143"/>
     </Grid>
 
 </Window>
