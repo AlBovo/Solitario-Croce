@@ -94,6 +94,19 @@
         }
 
         /// <summary>
+        /// peeks the first card of the deck
+        /// </summary>
+        /// <returns>the card at the top of the deck</returns>
+        /// <exception cref="Exception">thrown if the deck is Empty</exception>
+        public Card PeekCard()
+        {
+            if (IsEmpty())
+                throw new Exception("deck is Empty.");
+
+            return deck.Peek();
+        }
+
+        /// <summary>
         /// see if the deck is empty
         /// </summary>
         /// <returns>True if empty, false otherwise</returns>

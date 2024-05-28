@@ -131,6 +131,76 @@
             return true;
         }
 
+        /// <summary>
+        /// This functions returns the status of the current game.
+        /// </summary>
+        /// <returns>1 if lost, 0 if not finished, 2 if won.</returns>
+        public byte GetStatusGame()
+        {
+            bool isWon = true, isLost = true;
+            for (int i = 0; i < 6; i++)
+            {
+                if (stacks[i].Count > 0)
+                {
+                    isWon = false;
+                    break;
+                }
+            }
+            if (isWon && deck.IsEmpty())
+                return 2;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Card card, secondCard;
+                if (stacks[i].TryPeek(out card))
+                {
+                    // try the deck
+                    if (!deck.IsEmpty())
+                        isLost = false;
+
+                    // try all the bases card -> base
+                    for (int j = 0; j < 4; j++)
+                    {
+                        if (bases[j].Seed == card.Seed && bases[j].Value == card.Value - 1)
+                        {
+                            isLost = false; 
+                            break;
+                        }
+                    }
+
+                    // try all the stacks card -> stack
+                    for (int j = 0; j < 5; j++)
+                    {
+                        if(i == j) continue;
+
+                        if (stacks[j].TryPeek(out secondCard))
+                        {
+                            if(secondCard.Value - 1 == card.Value &&  secondCard.Seed != card.Seed)
+                            {
+                                isLost = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    // try stack of the deck stack -> card
+                    if (stacks[5].TryPeek(out secondCard))
+                    {
+                        if (secondCard.Value == card.Value - 1 && secondCard.Seed != card.Seed)
+                        {
+                            isLost = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (isLost)
+                return 1;
+
+            return 0;
+        }
+
         public Table()
         {
             for (int i = 0; i < 6; i++)

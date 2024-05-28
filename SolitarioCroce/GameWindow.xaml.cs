@@ -104,6 +104,24 @@ namespace SolitarioCroce
             }
         }
 
+        private void GameLost()
+        {
+            MessageBox.Show(
+                "Mi dispiace ma hai perso...",
+                "Sconfitta",
+                MessageBoxButton.OK
+            );
+        }
+
+        private void GameWon()
+        {
+            MessageBox.Show(
+                "Complimenti hai vinto!",
+                "Vittoria",
+                MessageBoxButton.OK
+            );
+        }
+
         private void Card_Drop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(typeof(Canvas)))
@@ -128,6 +146,22 @@ namespace SolitarioCroce
                     source.Background = create_Image_from_card(below);
                 else
                     source.Background = Brushes.Transparent;
+
+                byte status = table.GetStatusGame();
+                switch (status)
+                {
+                    case 1:
+                        GameLost();
+                        break;
+
+                    case 2:
+                        GameWon();
+                        break;
+
+                    default:
+                        break;
+                }
+
             }
 
             //remove opacity from source
