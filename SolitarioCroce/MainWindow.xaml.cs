@@ -18,10 +18,18 @@ namespace SolitarioCroce
         {
             InitializeComponent();
             if (times == 5) easterEgg();
-            string relativePath = "music/soundtrack.mp3";
-            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string path = Path.Combine(baseDirectory, relativePath);
+            else
+            {
+                string relativePath = "music/soundtrack.mp3";
+                string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string path = Path.Combine(baseDirectory, relativePath);
 
+                playMusic(path);
+            }
+        }
+
+        public void playMusic(string path)
+        {
             if (File.Exists(path))
             {
                 try
@@ -30,20 +38,20 @@ namespace SolitarioCroce
                     BackgroundMusic.MediaEnded += BackgroundMusic_MediaEnded; // Riproduci in loop
                     BackgroundMusic.Play();
                 }
-                catch { MessageBox.Show("errore"); }
+                catch { MessageBox.Show("error while playing music"); }
             }
         }
 
         public void easterEgg()
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "music/easterEgg.mp3");
+            string relativePath = "music/easterEgg.mp3";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(baseDirectory, relativePath);
             if (File.Exists(path))
             {
                 try
                 {
-                    BackgroundMusic.Source = new Uri(path, UriKind.Absolute);
-                    BackgroundMusic.MediaEnded += BackgroundMusic_MediaEnded; // Riproduci in loop
-                    BackgroundMusic.Play();
+                    playMusic(path);
                 }
                 catch { MessageBox.Show("errore"); }
             }

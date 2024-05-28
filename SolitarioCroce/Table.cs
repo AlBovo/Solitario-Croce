@@ -40,7 +40,8 @@
                 return false;
 
             if (stacks[stackFrom] == null || stacks[stackFrom].Count == 0)
-                throw new ArgumentException("Cannot extract card from empty stack.");
+                return false;
+                //throw new ArgumentException("Cannot extract card from empty stack.");
 
             Card cardFrom = stacks[stackFrom].Peek();
 
