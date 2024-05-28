@@ -56,8 +56,6 @@
     <None Remove="images\9D.jpg" />
     <None Remove="images\logo_solitario_croce-2.png" />
     <None Remove="images\RETRO.jpg" />
-    <None Remove="music\easterEgg.mp3" />
-    <None Remove="music\soundtrack.mp3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -200,16 +198,21 @@
     <Resource Include="images\9D.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="images\logo_solitario_croce-2.png" />
+    <Resource Include="images\logo_solitario_croce-2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="images\RETRO.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="music\soundtrack.mp3">
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="music\easterEgg.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="music\easterEgg.mp3">
+    </None>
+    <None Update="music\soundtrack.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
 
 </Project>

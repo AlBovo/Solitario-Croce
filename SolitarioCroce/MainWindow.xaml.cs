@@ -18,18 +18,20 @@ namespace SolitarioCroce
         {
             InitializeComponent();
             if (times == 5) easterEgg();
-            else
+            string relativePath = "music/soundtrack.mp3";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(baseDirectory, relativePath);
+
+            if (File.Exists(path))
             {
-                string relativePath = @".\music\soundtrack.mp3";
                 try
                 {
-                    BackgroundMusic.Source = new Uri(relativePath, UriKind.Relative);
+                    BackgroundMusic.Source = new Uri(path, UriKind.Absolute);
                     BackgroundMusic.MediaEnded += BackgroundMusic_MediaEnded; // Riproduci in loop
                     BackgroundMusic.Play();
                 }
                 catch { MessageBox.Show("errore"); }
             }
-
         }
 
         public void easterEgg()
