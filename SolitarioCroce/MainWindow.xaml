@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize">
     <Grid Background="#FF146f50">
+        <MediaElement Name="BackgroundMusic" LoadedBehavior="Manual" UnloadedBehavior="Stop" Volume="1" />
         <Button Content="Gioca!" HorizontalAlignment="Center" FontSize="20"  Height="40" VerticalAlignment="Top" Width="174" Click="Game_Click" Margin="0,233,0,0">
             <Button.Resources>
                 <Style TargetType="Border">
@@ -28,5 +29,5 @@
         </Rectangle>
         <TextBlock x:Name="txt_easterEgg" HorizontalAlignment="Left" Margin="487,343,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="41" Width="143"/>
     </Grid>
-
+    
 </Window>
