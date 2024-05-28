@@ -5,29 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
-        Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize">
+        Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize" Icon="/icon window.png">
     <Grid Background="#FF146f50">
         <MediaElement Name="BackgroundMusic" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
-        <Button Content="Gioca!" HorizontalAlignment="Center" FontSize="20"  Height="40" VerticalAlignment="Top" Width="174" Click="Game_Click" Margin="0,233,0,0">
+        <Button Content="Gioca!" HorizontalAlignment="Center" FontSize="20"  Height="40" VerticalAlignment="Top" Width="174" Click="Game_Click" Margin="0,223,0,0" FontFamily="Consolas" FontWeight="Bold">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Regole" HorizontalAlignment="Center" FontSize="20" Margin="0,293,0,0" VerticalAlignment="Top" Height="38" Width="174" Click="Rules_Click">
+        <Button Content="Regole" HorizontalAlignment="Center" FontSize="20" Margin="0,273,0,0" VerticalAlignment="Top" Height="38" Width="174" Click="Rules_Click" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Rectangle Margin="132,19,132,111">
+        <Rectangle Margin="132,19,132,111" Panel.ZIndex="-1">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="pack://application:,,,/images/logo_solitario_croce-2.png" />
             </Rectangle.Fill>
         </Rectangle>
         <TextBlock x:Name="txt_easterEgg" HorizontalAlignment="Left" Margin="487,343,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Height="41" Width="143"/>
+        <Button x:Name="Credits_Btn" Content="Crediti" HorizontalAlignment="Center" FontSize="14"  Height="30" VerticalAlignment="Top" Width="122" Click="Credits_Click" Margin="0,322,0,0" FontFamily="Consolas" Opacity="0.9" FontStyle="Italic">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
     
 </Window>

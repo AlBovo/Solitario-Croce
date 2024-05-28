@@ -72,5 +72,11 @@ namespace SolitarioCroce
             this.Close();
             rules.Show();
         }
+        private void Credits_Click(object sender, RoutedEventArgs e)
+        {
+            Credits credit = new Credits();
+            this.Close();
+            credit.Show();
+        }
     }
 }
