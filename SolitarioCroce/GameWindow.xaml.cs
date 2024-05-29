@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Threading;
 using System.Windows.Threading;
+using System.IO;
 
 namespace SolitarioCroce
 {
@@ -17,11 +18,13 @@ namespace SolitarioCroce
         double time = 0;
         readonly Table table = new Table();
         bool drop_from_user = true;
+        public static bool music = true;
 
         public GameWindow()
         {
             InitializeComponent();
 
+            retro.ImageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "images/RETRO.jpg")));
             Panel.SetZIndex(canva, 0);
             Card[] cards = new Card[5];
             for (int i = 0; i < 5; i++)
@@ -44,6 +47,13 @@ namespace SolitarioCroce
             timer.Interval = TimeSpan.FromMilliseconds(10); // this timer will trigger every 10 milliseconds
             timer.Start(); // starting the timer
             timer.Tick += timer_Tick; // with each tick it will trigger this function
+
+            string relativePath = "music/soundtrack.mp3";
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string path = Path.Combine(baseDirectory, relativePath);
+
+            playMusic(path);
+
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -51,6 +61,29 @@ namespace SolitarioCroce
             time += timer.Interval.TotalSeconds;
             txt_Timer.Text = $"{time:0.00}";
         }
+        public void playMusic(string path)
+        {
+            if (File.Exists(path))
+            {
+                try
+                {
+                    BackgroundMusic.Source = new Uri(path, UriKind.Absolute);
+                    BackgroundMusic.MediaEnded += BackgroundMusic_MediaEnded; // Riproduci in loop
+
+                    //play solo se la musica è attivata
+                    if (music)
+                        BackgroundMusic.Play();
+                }
+                catch { MessageBox.Show("error while playing music"); }
+            }
+        }
+
+        private void BackgroundMusic_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            BackgroundMusic.Position = TimeSpan.Zero;
+            BackgroundMusic.Play();
+        }
+
 
         /// <summary>
         /// function to call to choose which movement to perform
@@ -86,7 +119,7 @@ namespace SolitarioCroce
         private ImageBrush create_Image_from_card(Card card)
         {
             ImageBrush image = new ImageBrush();
-            image.ImageSource = new BitmapImage(new Uri(card.Path()));
+            image.ImageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, card.Path())));
             image.Stretch = Stretch.UniformToFill;
             return image;
         }

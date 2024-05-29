@@ -37,7 +37,7 @@
         /// <returns> the global path of the card image </returns>
         public string Path()
         {
-            return "pack://application:,,,/images/" + Value.ToString() + (char)(Seed + 'A') + ".jpg";   // add path to image
+            return "images/" + Value.ToString() + (char)(Seed + 'A') + ".jpg";   // add path to image
         }
 
         /// <summary>

@@ -33,6 +33,7 @@
     Background="#FF146f50"
     AllowDrop="True"
     Drop="canva_Drop">
+        <MediaElement Name="BackgroundMusic" Volume="0.3" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
 
         <!--#region Deck-->
 
@@ -42,9 +43,7 @@
             Click="GetDeckCard" BorderThickness="0"
             Style="{StaticResource NoHoverButtonStyle}">
                 <Button.Background>
-                    <ImageBrush
-                    ImageSource="/images/RETRO.jpg"
-                    Stretch="UniformToFill"/>
+                    <ImageBrush x:Name="retro"/>
                 </Button.Background>
             </Button>
         </Border>

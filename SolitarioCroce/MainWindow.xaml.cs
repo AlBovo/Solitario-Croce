@@ -2,6 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Diagnostics;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SolitarioCroce
 {
@@ -12,11 +14,12 @@ namespace SolitarioCroce
 
     public partial class MainWindow : Window
     {
-
+        public static bool music = true;
         public static int times = 0;
         public MainWindow()
         {
             InitializeComponent();
+            logo.ImageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo_solitario_croce-2.png")));
             if (times == 5) easterEgg();
             else
             {
@@ -26,6 +29,8 @@ namespace SolitarioCroce
 
                 playMusic(path);
             }
+
+            btn_enableMusic.Content = music ? "enabled" : "disabled";
         }
 
         public void playMusic(string path)
@@ -36,7 +41,10 @@ namespace SolitarioCroce
                 {
                     BackgroundMusic.Source = new Uri(path, UriKind.Absolute);
                     BackgroundMusic.MediaEnded += BackgroundMusic_MediaEnded; // Riproduci in loop
-                    BackgroundMusic.Play();
+
+                    //play solo se la musica è attivata
+                    if(music)
+                        BackgroundMusic.Play();
                 }
                 catch { MessageBox.Show("error while playing music"); }
             }
@@ -85,6 +93,23 @@ namespace SolitarioCroce
             Credits credit = new Credits();
             this.Close();
             credit.Show();
+        }
+
+        private void btn_enableMusic_Click(object sender, RoutedEventArgs e)
+        {
+            music = !music;
+
+            if (!music)
+            {
+                btn_enableMusic.Content = "disabled";
+                BackgroundMusic.Stop();
+            }
+            else
+            {
+                btn_enableMusic.Content = "enabled";
+                BackgroundMusic.Play();
+            }
+                
         }
     }
 }
