@@ -8,7 +8,11 @@
         Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize" Icon="/icon window.png">
     <Grid Background="#FF146f50">
         <MediaElement Name="BackgroundMusic" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
-        <Button x:Name="btn_enableMusic" Margin="558,19,22,315" Click="btn_enableMusic_Click"></Button>
+        <Button x:Name="btn_enableMusic" Margin="532,19,22,291" Click="btn_enableMusic_Click">
+            <Button.Background>
+                <ImageBrush x:Name="music_icon"/>
+            </Button.Background>
+        </Button>
         <Button Content="Gioca!" HorizontalAlignment="Center" FontSize="20"  Height="40" VerticalAlignment="Top" Width="174" Click="Game_Click" Margin="0,223,0,0" FontFamily="Consolas" FontWeight="Bold">
             <Button.Resources>
                 <Style TargetType="Border">

@@ -30,7 +30,12 @@ namespace SolitarioCroce
                 playMusic(path);
             }
 
-            btn_enableMusic.Content = music ? "enabled" : "disabled";
+            set_music_icon();
+        }
+
+        private void set_music_icon()
+        {
+            music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/play.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/pause.png"));
         }
 
         public void playMusic(string path)
@@ -43,7 +48,7 @@ namespace SolitarioCroce
                     BackgroundMusic.MediaEnded += BackgroundMusic_MediaEnded; // Riproduci in loop
 
                     //play solo se la musica è attivata
-                    if(music)
+                    if (music)
                         BackgroundMusic.Play();
                 }
                 catch { MessageBox.Show("error while playing music"); }
@@ -98,18 +103,13 @@ namespace SolitarioCroce
         private void btn_enableMusic_Click(object sender, RoutedEventArgs e)
         {
             music = !music;
+            set_music_icon();
 
             if (!music)
-            {
-                btn_enableMusic.Content = "disabled";
                 BackgroundMusic.Stop();
-            }
             else
-            {
-                btn_enableMusic.Content = "enabled";
                 BackgroundMusic.Play();
-            }
-                
+
         }
     }
 }
