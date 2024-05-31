@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
-        Title="GameLostPage" Height="450" Width="800">
+        Title="GameLostPage" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF146f50" Height="450" Width="800" >
         <Label Content="Hai perso :(" Margin="284,248,284,149" FontSize="33" FontFamily="Consolas" Foreground="#FFECECEC" FontWeight="Bold"/>
         <Button Content="Menu" FontSize="20" Height="37" Width="150" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic" Margin="325,362,325,51" Click="GameLost">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
-        Title="Solitario Croce" Height="871" Width="770" ResizeMode="NoResize">
+        Title="Solitario Croce" Height="871" Width="770" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <!--#region Remove Hover Button event style -->
 
     <Window.Resources>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
-        Title="GameWonPage" Height="450" Width="800">
+        Title="GameWonPage" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF146f50" Height="450" Width="800" >
         <Label Content="Hai vinto!" Margin="307,225,307,172" FontSize="33" FontFamily="Consolas" Foreground="#FFECECEC" FontWeight="Bold"/>
         <Button Content="Menu" FontSize="20" Height="37" Width="150" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic" Margin="325,370,325,44" Click="GameWon">
