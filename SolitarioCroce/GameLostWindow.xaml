@@ -8,7 +8,7 @@
         Title="GameLostPage" Height="450" Width="800">
     <Grid Background="#FF146f50" Height="450" Width="800" >
         <Label Content="Hai perso :(" Margin="284,248,284,149" FontSize="33" FontFamily="Consolas" Foreground="#FFECECEC" FontWeight="Bold"/>
-        <Button Content="Menu" FontSize="20" Height="37" Width="150" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic" Margin="325,362,325,51">
+        <Button Content="Menu" FontSize="20" Height="37" Width="150" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic" Margin="325,362,325,51" Click="GameLost">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -18,7 +18,7 @@
         <Rectangle Stroke="#FFECECEC" Margin="266,334,280,115"/>
         <Rectangle Margin="338,101,338,225">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/icons/give-up.png" />
+                <ImageBrush ImageSource="pack://application:,,,/icons/give-up.png" />
             </Rectangle.Fill>
         </Rectangle>
     </Grid>

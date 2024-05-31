@@ -10,9 +10,12 @@
 
   <ItemGroup>
     <None Remove="fonts\SevenSegment.ttf" />
-    <None Remove="icon window.png" />
+    <None Remove="icons\give-up.png" />
+    <None Remove="icons\logo.png" />
     <None Remove="icons\pause.png" />
     <None Remove="icons\play.png" />
+    <None Remove="icons\trophy.png" />
+    <None Remove="window.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,9 +26,24 @@
     <Resource Include="fonts\SevenSegment.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="icon window.png" />
-    <Resource Include="icons\pause.png" />
-    <Resource Include="icons\play.png" />
+    <Resource Include="icons\give-up.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\trophy.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\window.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\pause.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons\play.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -156,9 +174,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\9D.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="logo_solitario_croce-2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\RETRO.jpg">

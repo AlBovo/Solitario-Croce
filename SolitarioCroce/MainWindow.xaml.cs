@@ -20,7 +20,7 @@ namespace SolitarioCroce
         {
             InitializeComponent();
 
-            logo.ImageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo_solitario_croce-2.png")));
+            logo.ImageSource = new BitmapImage(new Uri("pack://application:,,,/icons/logo.png"));
             logo.Stretch = Stretch.UniformToFill;
             if (times == 5) easterEgg();
             else

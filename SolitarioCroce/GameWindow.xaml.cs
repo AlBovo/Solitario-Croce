@@ -165,20 +165,16 @@ namespace SolitarioCroce
 
         private void GameLost()
         {
-            MessageBox.Show(
-                "Mi dispiace ma hai perso...",
-                "Sconfitta",
-                MessageBoxButton.OK
-            );
+            GameLostPage lost = new GameLostPage();
+            this.Close();
+            lost.Show();
         }
 
         private void GameWon()
         {
-            MessageBox.Show(
-                "Complimenti hai vinto!",
-                "Vittoria",
-                MessageBoxButton.OK
-            );
+            GameWonPage won = new GameWonPage();
+            this.Close();
+            won.Show();
         }
 
         private void Card_Drop(object sender, DragEventArgs e)

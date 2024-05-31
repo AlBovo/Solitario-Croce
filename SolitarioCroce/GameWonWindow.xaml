@@ -8,7 +8,7 @@
         Title="GameWonPage" Height="450" Width="800">
     <Grid Background="#FF146f50" Height="450" Width="800" >
         <Label Content="Hai vinto!" Margin="307,225,307,172" FontSize="33" FontFamily="Consolas" Foreground="#FFECECEC" FontWeight="Bold"/>
-        <Button Content="Menu" FontSize="20" Height="37" Width="150" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic" Margin="325,370,325,44">
+        <Button Content="Menu" FontSize="20" Height="37" Width="150" FontFamily="Consolas" FontWeight="Bold" FontStyle="Italic" Margin="325,370,325,44" Click="GameWon">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -18,7 +18,7 @@
         <Rectangle Stroke="#FFECECEC" Margin="266,334,280,115"/>
         <Rectangle Margin="338,75,338,251">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/icons/trophy.png" />
+                <ImageBrush ImageSource="pack://application:,,,/icons/trophy.png" />
             </Rectangle.Fill>
         </Rectangle>
     </Grid>

@@ -15,13 +15,20 @@ using System.Windows.Shapes;
 namespace SolitarioCroce
 {
     /// <summary>
-    /// Logica di interazione per GameLostPage.xaml
+    /// Logica di interazione per GameWonPage.xaml
     /// </summary>
-    public partial class GameLostPage : Window
+    public partial class GameWonPage : Window
     {
-        public GameLostPage()
+        public GameWonPage()
         {
             InitializeComponent();
+        }
+
+        private void GameWon(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
         }
     }
 }
