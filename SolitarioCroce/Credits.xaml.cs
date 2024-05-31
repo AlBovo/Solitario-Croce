@@ -26,17 +26,8 @@ namespace SolitarioCroce
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
-            var result = MessageBox.Show(
-                "Sei sicuro di voler tornare al menu?",
-                "Torna il menu",
-                MessageBoxButton.YesNo
-            );
-
-            if (result == MessageBoxResult.Yes)
-            {
-                this.Close();
-                main.Show();
-            }
+            this.Close();
+            main.Show();
         }
     }
 }

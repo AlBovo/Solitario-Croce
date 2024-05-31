@@ -157,7 +157,10 @@
                 {
                     // try the deck
                     if (!deck.IsEmpty())
+                    {
                         isLost = false;
+                        break;
+                    }
 
                     // try all the bases card -> base
                     for (int j = 0; j < 4; j++)
@@ -174,7 +177,12 @@
                     {
                         if(i == j) continue;
 
-                        if (stacks[j].TryPeek(out secondCard))
+                        if (stacks[j].Count == 0)
+                        {
+                            isLost = false;
+                            break;
+                        }
+                        else if (stacks[j].TryPeek(out secondCard))
                         {
                             if(secondCard.Value - 1 == card.Value &&  secondCard.Seed != card.Seed)
                             {
