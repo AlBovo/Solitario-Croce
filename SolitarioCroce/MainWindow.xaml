@@ -6,9 +6,26 @@
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
         Title="Solitario Croce" Height="400" Width="630" ResizeMode="NoResize" Icon="/icon window.png">
+    <Window.Resources>
+        <Style x:Key="NoHoverButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Background="#FF146f50">
         <MediaElement Name="BackgroundMusic" Volume="0.5" LoadedBehavior="Manual" UnloadedBehavior="Stop" />
-        <Button x:Name="btn_enableMusic" Margin="532,19,22,291" Click="btn_enableMusic_Click">
+        <Button x:Name="btn_enableMusic" Margin="532,19,22,291" Click="btn_enableMusic_Click" Style="{StaticResource NoHoverButtonStyle}" BorderThickness="0,0,0,0">
             <Button.Background>
                 <ImageBrush x:Name="music_icon"/>
             </Button.Background>
@@ -41,5 +58,5 @@
             </Button.Resources>
         </Button>
     </Grid>
-    
+
 </Window>

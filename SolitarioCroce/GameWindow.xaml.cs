@@ -36,14 +36,15 @@ namespace SolitarioCroce
                 BaseTopRight.Background = create_Image_from_card(new Card(Card.Seeds.Coppe, 0));
                 BaseLowLeft.Background = create_Image_from_card(new Card(Card.Seeds.Spade, 0));
                 BaseLowRight.Background = create_Image_from_card(new Card(Card.Seeds.Bastoni, 0));
-            } catch 
+            }
+            catch
             {
                 BaseTopLeft.Background = create_Image_from_card(new Card(Card.Seeds.Denari, 1));
                 BaseTopRight.Background = create_Image_from_card(new Card(Card.Seeds.Coppe, 1));
                 BaseLowLeft.Background = create_Image_from_card(new Card(Card.Seeds.Spade, 1));
                 BaseLowRight.Background = create_Image_from_card(new Card(Card.Seeds.Bastoni, 1));
             }
-            
+
             BaseTopLeft.Background.Opacity = 0.5;
             BaseTopRight.Background.Opacity = 0.5;
             BaseLowLeft.Background.Opacity = 0.5;
@@ -62,6 +63,7 @@ namespace SolitarioCroce
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string path = Path.Combine(baseDirectory, relativePath);
 
+            set_music_icon();
             playMusic(path);
 
         }
@@ -124,6 +126,20 @@ namespace SolitarioCroce
 
             PickedCards.Background = create_Image_from_card(card);
             table.AddCardToPicked(card);
+            byte status = table.GetStatusGame();
+            switch (status)
+            {
+                case 1:
+                    GameLost();
+                    break;
+
+                case 2:
+                    GameWon();
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private ImageBrush create_Image_from_card(Card card)
@@ -277,6 +293,23 @@ namespace SolitarioCroce
                 this.Close();
                 main.Show();
             }
+        }
+
+        private void btn_enableMusic_Click(object sender, RoutedEventArgs e)
+        {
+            music = !music;
+            set_music_icon();
+
+            if (!music)
+                BackgroundMusic.Stop();
+            else
+                BackgroundMusic.Play();
+        }
+
+        private void set_music_icon()
+        {
+            music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/play.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/pause.png"));
+            music_icon.Stretch = Stretch.UniformToFill;
         }
     }
 }

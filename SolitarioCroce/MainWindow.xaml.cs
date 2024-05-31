@@ -19,7 +19,9 @@ namespace SolitarioCroce
         public MainWindow()
         {
             InitializeComponent();
+
             logo.ImageSource = new BitmapImage(new Uri(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logo_solitario_croce-2.png")));
+            logo.Stretch = Stretch.UniformToFill;
             if (times == 5) easterEgg();
             else
             {
@@ -36,6 +38,7 @@ namespace SolitarioCroce
         private void set_music_icon()
         {
             music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/play.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/pause.png"));
+            music_icon.Stretch = Stretch.UniformToFill;
         }
 
         public void playMusic(string path)
