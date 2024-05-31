@@ -206,7 +206,7 @@
                 <ImageBrush x:Name="music_icon"/>
             </Button.Background>
         </Button>
-        <Button Content="Reset" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Center" Height="50" Width="150" Canvas.Left="567" Canvas.Top="771" Click="Reset_Click">
+        <Button Content="Reset" HorizontalAlignment="Left" FontSize="20" VerticalAlignment="Top" Height="50" Width="150" Canvas.Left="582" Canvas.Top="779" Click="Reset_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -220,7 +220,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBlock x:Name="txt_Timer" Height="40" Canvas.Left="187" TextWrapping="Wrap" Text="Timer" Width="370" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" FontFamily="{StaticResource SevenSegmentDisplay}" Canvas.Top="10"/>
+        <TextBlock x:Name="txt_Timer" Height="40" Canvas.Left="200" TextWrapping="Wrap" Text="Timer" Width="370" FontSize="32" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Center" FontFamily="{StaticResource SevenSegmentDisplay}" Canvas.Top="10"/>
     </Canvas>
 
 </Window>
