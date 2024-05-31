@@ -19,6 +19,7 @@ namespace SolitarioCroce
         public MainWindow()
         {
             InitializeComponent();
+            music = true;
 
             logo.ImageSource = new BitmapImage(new Uri("pack://application:,,,/icons/logo.png"));
             logo.Stretch = Stretch.UniformToFill;
@@ -37,7 +38,7 @@ namespace SolitarioCroce
 
         private void set_music_icon()
         {
-            music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/play.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/pause.png"));
+            music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/pause.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/play.png"));
             music_icon.Stretch = Stretch.UniformToFill;
         }
 
@@ -84,6 +85,7 @@ namespace SolitarioCroce
 
         public void Game_Click(object sender, RoutedEventArgs e)
         {
+            if (music) BackgroundMusic.Stop();
             GameWindow game = new GameWindow();
             this.Close();
             game.Show();
@@ -91,6 +93,7 @@ namespace SolitarioCroce
 
         public void Rules_Click(object sender, RoutedEventArgs e)
         {
+            if (music) BackgroundMusic.Stop();
             times++;
             Rules rules = new Rules();
             this.Close();

@@ -165,6 +165,7 @@ namespace SolitarioCroce
 
         private void GameLost()
         {
+            if (music) BackgroundMusic.Stop();
             GameLostPage lost = new GameLostPage();
             this.Close();
             lost.Show();
@@ -172,6 +173,7 @@ namespace SolitarioCroce
 
         private void GameWon()
         {
+            if (music) BackgroundMusic.Stop();
             GameWonPage won = new GameWonPage();
             this.Close();
             won.Show();
@@ -286,6 +288,7 @@ namespace SolitarioCroce
 
             if (result == MessageBoxResult.Yes)
             {
+                if (music) BackgroundMusic.Stop();
                 this.Close();
                 main.Show();
             }
@@ -304,7 +307,7 @@ namespace SolitarioCroce
 
         private void set_music_icon()
         {
-            music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/play.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/pause.png"));
+            music_icon.ImageSource = music ? new BitmapImage(new Uri("pack://application:,,,/icons/pause.png")) : new BitmapImage(new Uri("pack://application:,,,/icons/play.png"));
             music_icon.Stretch = Stretch.UniformToFill;
         }
     }
