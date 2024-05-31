@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SolitarioCroce"
         mc:Ignorable="d"
-        Title="Solitario Croce" Height="871" Width="744" ResizeMode="NoResize">
+        Title="Solitario Croce" Height="871" Width="770" ResizeMode="NoResize">
     <!--#region Remove Hover Button event style -->
 
     <Window.Resources>
@@ -37,11 +37,11 @@
 
         <!--#region Deck-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Canvas.Left="264" Canvas.Top="581" VerticalAlignment="Top">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="174" HorizontalAlignment="Center" Canvas.Left="255" Canvas.Top="629" VerticalAlignment="Top">
             <Button
             x:Name="Deck" 
             Click="GetDeckCard" BorderThickness="0"
-            Style="{StaticResource NoHoverButtonStyle}">
+            Style="{StaticResource NoHoverButtonStyle}" Margin="-3,-3,-3,-3">
                 <Button.Background>
                     <ImageBrush x:Name="retro"/>
                 </Button.Background>
@@ -52,7 +52,7 @@
 
         <!--#region Picked Cards -->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" HorizontalAlignment="Left" Canvas.Left="379" Canvas.Top="581" VerticalAlignment="Top">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="174" HorizontalAlignment="Center" Canvas.Left="389" Canvas.Top="629" VerticalAlignment="Top">
             <Canvas 
             Tag="s5"
             x:Name="PickedCards"                
@@ -66,7 +66,7 @@
 
         <!--#region CrossLow -->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="397" Canvas.Left="322" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="431" Canvas.Left="325" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Canvas 
             Tag="s2"
             x:Name="CrossLow"                
@@ -81,7 +81,7 @@
 
         <!--#region CrossRight-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="227" Canvas.Left="432" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="114" Height="175" Canvas.Top="244" Canvas.Left="464" HorizontalAlignment="Center" VerticalAlignment="Top">
             <Canvas 
             Tag="s1"
             x:Name="CrossRight"                
@@ -96,7 +96,7 @@
 
         <!--#region CrossMid -->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="227" Canvas.Left="322" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="244" Canvas.Left="325" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s4"
             x:Name="CrossMid"                
@@ -111,7 +111,7 @@
 
         <!--#region CrossLeft-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="227" Canvas.Left="212" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="244" Canvas.Left="188" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s0"
             x:Name="CrossLeft"                
@@ -126,7 +126,7 @@
 
         <!--#region CrossTop-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="57" Canvas.Left="322" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="57" Canvas.Left="325" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Canvas 
             Tag="s3"
             x:Name="CrossTop"                
@@ -141,7 +141,7 @@
 
         <!--#region BaseLowRight-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="503" Canvas.Left="617" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="503" Canvas.Left="617" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Canvas 
             Tag="b3"
             x:Name="BaseLowRight"                
@@ -154,7 +154,7 @@
 
         <!--#region BaseLowLeft-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="500" Canvas.Left="20">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="500" Canvas.Left="20">
             <Canvas 
             Tag="b2"
             x:Name="BaseLowLeft"                
@@ -168,7 +168,7 @@
 
         <!--#region BaseTopLeft-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="20" Canvas.Left="20">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="20" Canvas.Left="20">
             <Canvas 
             Tag="b0"
             x:Name="BaseTopLeft"                
@@ -182,7 +182,7 @@
 
         <!--#region BaseTopRight-->
 
-        <Border BorderBrush="Gray" BorderThickness="3" Width="100" Height="160" Canvas.Top="17" Canvas.Left="617" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Border BorderBrush="Gray" BorderThickness="3" Width="115" Height="175" Canvas.Top="17" Canvas.Left="617" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Canvas 
             Tag="b1"
             x:Name="BaseTopRight"                
@@ -201,7 +201,7 @@
             AllowDrop="True"
             Drop="moving_card_Drop"
         />
-        <Button x:Name="btn_enableMusic" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top" Height="50" Width="50" Click="btn_enableMusic_Click" Style="{StaticResource NoHoverButtonStyle}" BorderThickness="0,0,0,0" Canvas.Left="620" Canvas.Top="282">
+        <Button x:Name="btn_enableMusic" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top" Height="50" Width="50" Click="btn_enableMusic_Click" Style="{StaticResource NoHoverButtonStyle}" BorderThickness="0,0,0,0" Canvas.Left="682" Canvas.Top="306">
             <Button.Background>
                 <ImageBrush x:Name="music_icon"/>
             </Button.Background>
