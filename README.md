@@ -1,8 +1,7 @@
+# Solitario Croce
+Development of a game in C# using the WPF framework; the game is a solitaire based on customized playing cards.
 
-# Project Work 3H - 2023/24
-Realizzazione di programma C# + WPF, per giocare un solitario basato su carte da gioco personalizzate.
-
-## Team di sviluppo
+## Development team
 Questo progetto è sviluppato da:
 
 - **Agostini** Alan
@@ -11,13 +10,13 @@ Questo progetto è sviluppato da:
 - **Bovo** Alan Davide
 
 
-## Gioco
-Il gioco da sviluppare è il [Solitario a Croce](https://www.youtube.com/watch?v=g7TJviLmuMg)
+## Game
+The game to be developed is the [Solitario a Croce](https://www.youtube.com/watch?v=g7TJviLmuMg)
 
-**Come si gioca:** 5 carte del mazzo vengono posizionate al centro del tavolo a formare una croce. Sono lasciate libere 4 postazioni dette basi.
+**How to play:** Five cards from the *deck* are placed in the center of the table to form a **cross**. Four positions, called *bases*, are left free.
 
-Scopo del solitario è costruire e completare le basi (dall’asso al re per ciascun seme, in senso ascendente), trasferendovi tutte le carte. Mentre per le basi vale la regola dello stesso seme in senso ascendente, nella croce vale quella del seme diverso in senso discendente.
+The goal of the *solitaire game* is to build and complete the bases (from ace to king for each suit, in ascending order) by transferring all the cards to them. While the bases must follow the rule of the same suit in ascending order, the cross follows the rule of different suits in descending order.
 
-La prima carta di ciascun mazzetto che forma la croce può andare alle basi o essere spostata su un posto vuoto o su di un’altra carta della croce. Si può spostare una sola carta alla volta. La carta del pozzo può andare direttamente alle basi o essere trasferita al tavolo.
+The top card of each pile forming the cross can be moved to the bases, placed in an empty spot, or on top of another card in the cross. Only one card can be moved at a time. The card from the stock can go directly to the bases or be transferred to the table.
 
-**Tipo di carte:** carte italiane (4 semi x 10 carte per ogni seme).
+**Type of cards:** Italian 🇮🇹 cards (4 suits, 10 cards per suit).
